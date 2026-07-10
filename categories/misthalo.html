@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AeroSip - Smart Hydration Products by NovaCore">
-    <title>AeroSip - Smart Hydration - NovaCore</title>
+    <meta name="description" content="MistHalo - Personal Climate Products by NovaCore">
+    <title>MistHalo - Personal Climate - NovaCore</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -52,9 +52,7 @@
     <!-- ============================================ -->
     <header id="header" class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md border-b border-gray-100 z-50 transition-all duration-300">
         
-        <!-- ============================================ -->
-        <!-- DESKTOP HEADER -->
-        <!-- ============================================ -->
+        <!-- Desktop Header -->
         <div class="hidden lg:block relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 
@@ -69,7 +67,6 @@
                 <!-- Navigation + Icons (Right) -->
                 <div class="flex items-center space-x-3">
                     <nav class="flex items-center space-x-1">
-                        <!-- Home Link -->
                         <a href="../index.html" class="px-3 py-2 text-gray-700 hover:text-novacore-600 font-medium transition-colors rounded-lg hover:bg-novacore-50">Home</a>
                         
                         <!-- Products Dropdown -->
@@ -79,14 +76,12 @@
                                 <svg class="dropdown-plus-icon w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                                 <svg class="dropdown-minus-icon w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:none;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path></svg>
                             </button>
-                            <!-- Dropdown Menu -->
                             <div class="absolute top-full right-0 mt-2 w-64 bg-white rounded-xl shadow-2xl opacity-0 invisible transition-all duration-200 z-50" id="desktop-products-dropdown">
                                 <div class="p-4 space-y-2">
-                                    <!-- Current category highlighted -->
-                                    <a href="aerosip.html" class="block px-4 py-2 rounded-lg bg-novacore-50 text-novacore-600 font-medium">AeroSip</a>
+                                    <a href="aerosip.html" class="block px-4 py-2 rounded-lg hover:bg-novacore-50 text-gray-700 hover:text-novacore-600 transition-colors">AeroSip</a>
                                     <a href="echolock.html" class="block px-4 py-2 rounded-lg hover:bg-novacore-50 text-gray-700 hover:text-novacore-600 transition-colors">EchoLock</a>
                                     <a href="blinkband.html" class="block px-4 py-2 rounded-lg hover:bg-novacore-50 text-gray-700 hover:text-novacore-600 transition-colors">BlinkBand</a>
-                                    <a href="misthalo.html" class="block px-4 py-2 rounded-lg hover:bg-novacore-50 text-gray-700 hover:text-novacore-600 transition-colors">MistHalo</a>
+                                    <a href="misthalo.html" class="block px-4 py-2 rounded-lg bg-novacore-50 text-novacore-600 font-medium">MistHalo</a>
                                     <a href="flexbottle.html" class="block px-4 py-2 rounded-lg hover:bg-novacore-50 text-gray-700 hover:text-novacore-600 transition-colors">FlexBottle</a>
                                     <div class="border-t border-gray-100 pt-2 mt-2">
                                         <a href="coming-soon.html" class="block px-4 py-2 rounded-lg hover:bg-novacore-50 text-novacore-600 font-medium transition-colors">Coming Soon</a>
@@ -95,32 +90,23 @@
                             </div>
                         </div>
                         
-                        <!-- Labs Link -->
                         <a href="../labs/research.html" class="px-3 py-2 text-gray-700 hover:text-novacore-600 font-medium transition-colors rounded-lg hover:bg-novacore-50">NovaCore Labs</a>
-                        
-                        <!-- About Link -->
                         <a href="../about.html" class="px-3 py-2 text-gray-700 hover:text-novacore-600 font-medium transition-colors rounded-lg hover:bg-novacore-50">About</a>
                     </nav>
                     
-                    <!-- Divider between nav and icons -->
                     <div class="h-6 w-px bg-gray-200 mx-1"></div>
                     
-                    <!-- Icon Buttons -->
+                    <!-- Icons -->
                     <div class="flex items-center space-x-1">
-                        <!-- Search Icon -->
                         <button id="search-btn" class="p-2 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Search">
                             <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                         </button>
                         
-                        <!-- Cart Icon -->
                         <a href="../Cart/cart.html" class="p-2 rounded-lg hover:bg-gray-100 transition-colors cart-icon-container" aria-label="Cart">
                             <svg class="w-6 h-6 cart-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <!-- Bag Body -->
                                 <path class="cart-bag-body" d="M6 8.5H18C19.1046 8.5 20 9.39543 20 10.5V19.5C20 20.6046 19.1046 21.5 18 21.5H6C4.89543 21.5 4 20.6046 4 19.5V10.5C4 9.39543 4.89543 8.5 6 8.5Z" fill="none" stroke="#1D1D1F" stroke-width="1.25" stroke-linejoin="round"/>
-                                <!-- Bag Handle -->
                                 <path class="cart-bag-handle" d="M7.5 8.5V6.5C7.5 4.01472 9.51472 2 12 2C14.4853 2 16.5 4.01472 16.5 6.5V8.5" stroke="#1D1D1F" stroke-width="1.25" stroke-linecap="round"/>
                             </svg>
-                            <!-- Cart Badge (hidden when empty) -->
                             <span id="cart-badge" class="cart-badge hidden">0</span>
                         </a>
                     </div>
@@ -129,13 +115,10 @@
             </div>
         </div>
         
-        <!-- ============================================ -->
-        <!-- MOBILE HEADER -->
-        <!-- ============================================ -->
+        <!-- Mobile Header -->
         <div class="lg:hidden relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 
-                <!-- Logo (Left) -->
                 <div class="flex-shrink-0">
                     <a href="../index.html" class="flex items-center">
                         <img src="../assets/images/logo/logo.jpg" alt="NovaCore" class="h-8 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
@@ -143,26 +126,19 @@
                     </a>
                 </div>
                 
-                <!-- Icons + Menu Toggle (Right) -->
                 <div class="flex items-center space-x-2">
-                    <!-- Search Icon -->
                     <button id="search-btn-mobile" class="p-2 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Search">
                         <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                     </button>
                     
-                    <!-- Cart Icon -->
                     <a href="../Cart/cart.html" class="p-2 rounded-lg hover:bg-gray-100 transition-colors cart-icon-container" aria-label="Cart">
                         <svg class="w-6 h-6 cart-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Bag Body -->
                             <path class="cart-bag-body" d="M6 8.5H18C19.1046 8.5 20 9.39543 20 10.5V19.5C20 20.6046 19.1046 21.5 18 21.5H6C4.89543 21.5 4 20.6046 4 19.5V10.5C4 9.39543 4.89543 8.5 6 8.5Z" fill="none" stroke="#1D1D1F" stroke-width="1.25" stroke-linejoin="round"/>
-                            <!-- Bag Handle -->
                             <path class="cart-bag-handle" d="M7.5 8.5V6.5C7.5 4.01472 9.51472 2 12 2C14.4853 2 16.5 4.01472 16.5 6.5V8.5" stroke="#1D1D1F" stroke-width="1.25" stroke-linecap="round"/>
                         </svg>
-                        <!-- Cart Badge -->
                         <span id="cart-badge-mobile" class="cart-badge hidden">0</span>
                     </a>
                     
-                    <!-- Hamburger Menu Toggle (opens sidebar from right) -->
                     <button id="mobile-menu-btn" class="p-2 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Toggle menu" aria-expanded="false">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     </button>
@@ -171,14 +147,11 @@
             </div>
         </div>
         
-        <!-- ============================================ -->
-        <!-- SEARCH OVERLAY -->
-        <!-- ============================================ -->
+        <!-- Search Overlay -->
         <div id="search-overlay" class="hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-start justify-center pt-32">
             <div class="w-full max-w-2xl mx-4">
                 <div class="relative">
                     <input type="text" id="search-input" placeholder="Search products, innovations..." class="w-full bg-transparent border-b-2 border-white text-white text-2xl py-4 px-2 focus:outline-none" autofocus>
-                    <!-- Close Search Button -->
                     <button id="close-search" class="absolute right-2 top-4 text-white hover:text-gray-300">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                     </button>
@@ -193,15 +166,10 @@
     <!-- MOBILE SIDEBAR (Slides from RIGHT) -->
     <!-- ============================================ -->
     <div id="mobile-sidebar" class="fixed inset-0 z-50 lg:hidden" style="transform: translateX(100%); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);">
-        
-        <!-- Blurred Background Overlay -->
         <div id="sidebar-overlay" class="absolute inset-0 bg-black/40 backdrop-blur-md" style="opacity: 0; transition: opacity 0.3s ease;"></div>
-        
-        <!-- Sidebar Panel -->
         <div id="sidebar-panel" class="absolute top-0 right-0 w-80 max-w-[85vw] h-full bg-white shadow-2xl overflow-y-auto" style="transform: translateX(20px); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);">
             <div class="p-6">
                 
-                <!-- Sidebar Logo -->
                 <div class="mb-8 text-center">
                     <a href="../index.html" class="inline-flex items-center justify-center">
                         <img src="../assets/images/logo/logo.jpg" alt="NovaCore" class="h-8 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
@@ -209,46 +177,38 @@
                     </a>
                 </div>
                 
-                <!-- Sidebar Navigation Links -->
                 <nav class="space-y-2">
-                    
-                    <!-- Home Link -->
                     <a href="../index.html" class="flex items-center px-4 py-3 text-gray-700 hover:text-novacore-600 hover:bg-novacore-50 rounded-lg font-medium transition-colors">
                         <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                         Home
                     </a>
                     
-                    <!-- Products Dropdown (Accordion) -->
                     <div>
                         <button class="sidebar-dropdown-btn w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:text-novacore-600 hover:bg-novacore-50 rounded-lg font-medium transition-colors">
                             <span class="flex items-center">
                                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
                                 Products
                             </span>
-                            <!-- Plus/Minus toggle icons -->
                             <svg class="sidebar-plus-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                             <svg class="sidebar-minus-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:none;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path></svg>
                         </button>
-                        <!-- Dropdown Content -->
                         <div class="sidebar-dropdown overflow-hidden" style="max-height: 0; transition: max-height 0.3s ease;">
                             <div class="pl-12 space-y-1 mt-1 pb-2">
-                                <a href="aerosip.html" class="block px-4 py-2 text-novacore-600 font-medium rounded-lg text-sm">AeroSip</a>
+                                <a href="aerosip.html" class="block px-4 py-2 text-gray-600 hover:text-novacore-600 hover:bg-novacore-50 rounded-lg text-sm transition-colors">AeroSip</a>
                                 <a href="echolock.html" class="block px-4 py-2 text-gray-600 hover:text-novacore-600 hover:bg-novacore-50 rounded-lg text-sm transition-colors">EchoLock</a>
                                 <a href="blinkband.html" class="block px-4 py-2 text-gray-600 hover:text-novacore-600 hover:bg-novacore-50 rounded-lg text-sm transition-colors">BlinkBand</a>
-                                <a href="misthalo.html" class="block px-4 py-2 text-gray-600 hover:text-novacore-600 hover:bg-novacore-50 rounded-lg text-sm transition-colors">MistHalo</a>
+                                <a href="misthalo.html" class="block px-4 py-2 text-novacore-600 font-medium rounded-lg text-sm">MistHalo</a>
                                 <a href="flexbottle.html" class="block px-4 py-2 text-gray-600 hover:text-novacore-600 hover:bg-novacore-50 rounded-lg text-sm transition-colors">FlexBottle</a>
                                 <a href="coming-soon.html" class="block px-4 py-2 text-novacore-600 hover:text-novacore-700 hover:bg-novacore-50 rounded-lg text-sm font-medium transition-colors">Coming Soon</a>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Labs Link -->
                     <a href="../labs/research.html" class="flex items-center px-4 py-3 text-gray-700 hover:text-novacore-600 hover:bg-novacore-50 rounded-lg font-medium transition-colors">
                         <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                         NovaCore Labs
                     </a>
                     
-                    <!-- About Link -->
                     <a href="../about.html" class="flex items-center px-4 py-3 text-gray-700 hover:text-novacore-600 hover:bg-novacore-50 rounded-lg font-medium transition-colors">
                         <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         About
@@ -266,15 +226,14 @@
         <section class="py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <!-- Category Header (text only, no logo image) -->
+                <!-- Category Header -->
                 <div class="text-center mb-12">
-                    <h1 class="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">AeroSip - Smart Hydration</h1>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Intelligent water bottles that track your hydration and keep drinks at the perfect temperature.</p>
+                    <h1 class="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">MistHalo - Personal Climate</h1>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Wearable cooling and heating technology that keeps you comfortable in any environment.</p>
                 </div>
                 
-                <!-- Products Grid (dynamically filled by JavaScript) -->
+                <!-- Products Grid (dynamic) -->
                 <div id="category-products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Loading spinner (shown while fetching) -->
                     <div class="col-span-full flex justify-center items-center py-20">
                         <div class="text-center">
                             <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-novacore-600 mx-auto mb-4"></div>
@@ -293,57 +252,27 @@
     <footer class="bg-gray-900 text-white pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                
-                <!-- Support Links -->
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Support</h3>
-                    <ul class="space-y-2">
-                        <li><a href="../contact.html" class="text-gray-400 hover:text-white transition-colors">Warranty</a></li>
-                        <li><a href="../contact.html" class="text-gray-400 hover:text-white transition-colors">Shipping & Returns</a></li>
-                        <li><a href="../contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Legal Links -->
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Legal</h3>
-                    <ul class="space-y-2">
-                        <li><a href="../privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
-                        <li><a href="../terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
-                        <li><a href="../cookie-policy.html" class="text-gray-400 hover:text-white transition-colors">Cookie Policy</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Social Media Connect -->
+                <div><h3 class="text-lg font-bold mb-4">Support</h3><ul class="space-y-2">
+                    <li><a href="../contact.html" class="text-gray-400 hover:text-white transition-colors">Warranty</a></li>
+                    <li><a href="../contact.html" class="text-gray-400 hover:text-white transition-colors">Shipping & Returns</a></li>
+                    <li><a href="../contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                </ul></div>
+                <div><h3 class="text-lg font-bold mb-4">Legal</h3><ul class="space-y-2">
+                    <li><a href="../privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                    <li><a href="../terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                    <li><a href="../cookie-policy.html" class="text-gray-400 hover:text-white transition-colors">Cookie Policy</a></li>
+                </ul></div>
                 <div>
                     <h3 class="text-lg font-bold mb-4">Connect</h3>
                     <div class="flex items-center gap-x-2">
-                        <!-- Facebook -->
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 hover:scale-110 transition-transform" style="background-color: #1877F2;" aria-label="Facebook">
-                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#ffffff"/></svg>
-                        </a>
-                        <!-- Instagram -->
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 hover:scale-110 transition-transform" style="background-color: #E4405F;" aria-label="Instagram">
-                            <svg class="w-4 h-4" viewBox="0 0 24 24"><path fill="#ffffff" d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
-                        </a>
-                        <!-- X (Twitter) -->
-                        <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 hover:scale-110 transition-transform" style="background-color: #000000;" aria-label="X (Twitter)">
-                            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#ffffff"/></svg>
-                        </a>
-                        <!-- TikTok -->
-                        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 hover:scale-110 transition-transform" style="background-color: #000000;" aria-label="TikTok">
-                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#ffffff"/></svg>
-                        </a>
-                        <!-- YouTube -->
-                        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 hover:scale-110 transition-transform" style="background-color: #FF0000;" aria-label="YouTube">
-                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#ffffff"/></svg>
-                        </a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 hover:scale-110 transition-transform" style="background-color: #1877F2;" aria-label="Facebook"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#ffffff"/></svg></a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 hover:scale-110 transition-transform" style="background-color: #E4405F;" aria-label="Instagram"><svg class="w-4 h-4" viewBox="0 0 24 24"><path fill="#ffffff" d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg></a>
+                        <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 hover:scale-110 transition-transform" style="background-color: #000000;" aria-label="X (Twitter)"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#ffffff"/></svg></a>
+                        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 hover:scale-110 transition-transform" style="background-color: #000000;" aria-label="TikTok"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#ffffff"/></svg></a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 hover:scale-110 transition-transform" style="background-color: #FF0000;" aria-label="YouTube"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#ffffff"/></svg></a>
                     </div>
                 </div>
-                
             </div>
-            
-            <!-- Copyright -->
             <div class="pt-8 border-t border-gray-800 text-center">
                 <p class="text-gray-400">&copy; 2026 NovaCore. Innovating Everyday Life.</p>
             </div>
@@ -353,38 +282,28 @@
     <!-- ============================================ -->
     <!-- SCRIPTS -->
     <!-- ============================================ -->
-    
-    <!-- API Handler (must load before our inline script) -->
     <script src="../assets/js/api.js"></script>
-    
-    <!-- Page-specific JavaScript -->
     <script>
         (function() {
             'use strict';
             
-            // Run on page load
             document.addEventListener('DOMContentLoaded', function() {
-                initMobileMenu();        // Mobile sidebar toggle
-                initSidebarDropdown();   // Products accordion in sidebar
-                initProductsDropdown();  // Desktop products dropdown
-                initSearchOverlay();     // Search overlay open/close
-                loadProducts();          // Fetch and render products
-                updateCartBadge();       // Show cart item count
+                initMobileMenu();
+                initSidebarDropdown();
+                initProductsDropdown();
+                initSearchOverlay();
+                loadProducts();
+                updateCartBadge();
             });
             
-            // ============================================
-            // MOBILE MENU - Toggle sidebar from right
-            // ============================================
             function initMobileMenu() {
                 var menuBtn = document.getElementById('mobile-menu-btn');
                 var sidebar = document.getElementById('mobile-sidebar');
                 var overlay = document.getElementById('sidebar-overlay');
                 var panel = document.getElementById('sidebar-panel');
-                
                 if (!menuBtn || !sidebar) return;
                 var isOpen = false;
                 
-                // Toggle on hamburger click
                 menuBtn.addEventListener('click', function(e) {
                     e.preventDefault();
                     isOpen = !isOpen;
@@ -392,7 +311,7 @@
                         sidebar.style.transform = 'translateX(0)';
                         if (overlay) overlay.style.opacity = '1';
                         if (panel) panel.style.transform = 'translateX(0)';
-                        document.body.style.overflow = 'hidden'; // Prevent background scroll
+                        document.body.style.overflow = 'hidden';
                     } else {
                         sidebar.style.transform = 'translateX(100%)';
                         if (overlay) overlay.style.opacity = '0';
@@ -401,18 +320,14 @@
                     }
                 });
                 
-                // Close on overlay click
-                if (overlay) {
-                    overlay.addEventListener('click', function() {
-                        isOpen = false;
-                        sidebar.style.transform = 'translateX(100%)';
-                        overlay.style.opacity = '0';
-                        if (panel) panel.style.transform = 'translateX(20px)';
-                        document.body.style.overflow = '';
-                    });
-                }
+                if (overlay) overlay.addEventListener('click', function() {
+                    isOpen = false;
+                    sidebar.style.transform = 'translateX(100%)';
+                    overlay.style.opacity = '0';
+                    if (panel) panel.style.transform = 'translateX(20px)';
+                    document.body.style.overflow = '';
+                });
                 
-                // Close on Escape key
                 document.addEventListener('keydown', function(e) {
                     if (e.key === 'Escape' && isOpen) {
                         isOpen = false;
@@ -424,9 +339,6 @@
                 });
             }
             
-            // ============================================
-            // SIDEBAR DROPDOWN - Products accordion
-            // ============================================
             function initSidebarDropdown() {
                 document.querySelectorAll('.sidebar-dropdown-btn').forEach(function(btn) {
                     btn.addEventListener('click', function() {
@@ -434,10 +346,8 @@
                         var plusIcon = this.querySelector('.sidebar-plus-icon');
                         var minusIcon = this.querySelector('.sidebar-minus-icon');
                         if (!dropdown) return;
-                        
                         var isOpen = dropdown.style.maxHeight && dropdown.style.maxHeight !== '0px';
                         
-                        // Close all other dropdowns first
                         document.querySelectorAll('.sidebar-dropdown').forEach(function(d) {
                             if (d !== dropdown) {
                                 d.style.maxHeight = '0';
@@ -451,7 +361,6 @@
                             }
                         });
                         
-                        // Toggle this dropdown
                         if (isOpen) {
                             dropdown.style.maxHeight = '0';
                             if (plusIcon) plusIcon.style.display = 'block';
@@ -465,18 +374,13 @@
                 });
             }
             
-            // ============================================
-            // DESKTOP PRODUCTS DROPDOWN
-            // ============================================
             function initProductsDropdown() {
                 var dropdown = document.getElementById('desktop-products-dropdown');
                 var group = document.querySelector('.products-group');
                 if (!dropdown || !group) return;
-                
                 var isOpen = false;
                 var btn = group.querySelector('button');
                 
-                // Click toggle
                 if (btn) {
                     btn.addEventListener('click', function(e) {
                         e.preventDefault();
@@ -487,7 +391,6 @@
                     });
                 }
                 
-                // Close on outside click
                 document.addEventListener('click', function(e) {
                     if (!group.contains(e.target)) {
                         isOpen = false;
@@ -496,26 +399,14 @@
                     }
                 });
                 
-                // Hover open (desktop only)
                 group.addEventListener('mouseenter', function() {
-                    if (window.innerWidth >= 1024) {
-                        isOpen = true;
-                        dropdown.style.opacity = '1';
-                        dropdown.style.visibility = 'visible';
-                    }
+                    if (window.innerWidth >= 1024) { isOpen = true; dropdown.style.opacity = '1'; dropdown.style.visibility = 'visible'; }
                 });
                 group.addEventListener('mouseleave', function() {
-                    if (window.innerWidth >= 1024) {
-                        isOpen = false;
-                        dropdown.style.opacity = '0';
-                        dropdown.style.visibility = 'hidden';
-                    }
+                    if (window.innerWidth >= 1024) { isOpen = false; dropdown.style.opacity = '0'; dropdown.style.visibility = 'hidden'; }
                 });
             }
             
-            // ============================================
-            // SEARCH OVERLAY
-            // ============================================
             function initSearchOverlay() {
                 var searchBtns = document.querySelectorAll('#search-btn, #search-btn-mobile');
                 var overlay = document.getElementById('search-overlay');
@@ -523,7 +414,6 @@
                 var input = document.getElementById('search-input');
                 if (!overlay) return;
                 
-                // Open search
                 searchBtns.forEach(function(btn) {
                     if (btn) btn.addEventListener('click', function() {
                         overlay.classList.remove('hidden');
@@ -532,160 +422,69 @@
                     });
                 });
                 
-                // Close search
-                if (closeBtn) closeBtn.addEventListener('click', function() {
-                    overlay.classList.add('hidden');
-                    document.body.style.overflow = '';
-                    if (input) input.value = '';
-                });
-                
-                // Close on Escape
-                document.addEventListener('keydown', function(e) {
-                    if (e.key === 'Escape' && !overlay.classList.contains('hidden')) {
-                        overlay.classList.add('hidden');
-                        document.body.style.overflow = '';
-                        if (input) input.value = '';
-                    }
-                });
-                
-                // Close on overlay click
-                overlay.addEventListener('click', function(e) {
-                    if (e.target === overlay) {
-                        overlay.classList.add('hidden');
-                        document.body.style.overflow = '';
-                        if (input) input.value = '';
-                    }
-                });
+                if (closeBtn) closeBtn.addEventListener('click', function() { overlay.classList.add('hidden'); document.body.style.overflow = ''; if (input) input.value = ''; });
+                document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && !overlay.classList.contains('hidden')) { overlay.classList.add('hidden'); document.body.style.overflow = ''; if (input) input.value = ''; } });
+                overlay.addEventListener('click', function(e) { if (e.target === overlay) { overlay.classList.add('hidden'); document.body.style.overflow = ''; if (input) input.value = ''; } });
             }
             
-            // ============================================
-            // LOAD PRODUCTS - Fetch from API
-            // ============================================
             function loadProducts() {
                 var grid = document.getElementById('category-products-grid');
+                if (!window.NovaCoreAPI) { grid.innerHTML = '<div class="col-span-full text-center py-12"><p class="text-red-500">Unable to load products.</p></div>'; return; }
                 
-                // Check if API is available
-                if (!window.NovaCoreAPI) {
-                    grid.innerHTML = '<div class="col-span-full text-center py-12"><p class="text-red-500">Unable to load products. API not available.</p></div>';
-                    return;
-                }
-                
-                // Fetch products filtered by category
-                window.NovaCoreAPI.getProductsByCategory('Smart Hydration')
+                window.NovaCoreAPI.getProductsByCategory('Personal Climate')
                     .then(function(products) {
-                        if (!products || products.length === 0) {
-                            grid.innerHTML = '<div class="col-span-full text-center py-12"><p class="text-gray-400">No products found in this category.</p></div>';
-                            return;
-                        }
+                        if (!products || products.length === 0) { grid.innerHTML = '<div class="col-span-full text-center py-12"><p class="text-gray-400">No products found.</p></div>'; return; }
                         renderProducts(products, grid);
                     })
-                    .catch(function(error) {
-                        console.error('Product load error:', error);
-                        grid.innerHTML = '<div class="col-span-full text-center py-12"><p class="text-red-500">Failed to load products. Please try again later.</p></div>';
-                    });
+                    .catch(function() { grid.innerHTML = '<div class="col-span-full text-center py-12"><p class="text-red-500">Failed to load products.</p></div>'; });
             }
             
-            // ============================================
-            // RENDER PRODUCT CARDS
-            // ============================================
             function renderProducts(products, grid) {
                 var html = '';
-                
                 products.forEach(function(p) {
-                    // Product card container with hover effect
                     html += '<div style="background:#fff;border-radius:16px;overflow:hidden;border:1px solid #f3f4f6;transition:all 0.3s;" onmouseover="this.style.transform=\'translateY(-4px)\';this.style.boxShadow=\'0 20px 25px -5px rgba(0,0,0,0.1)\'" onmouseout="this.style.transform=\'translateY(0)\';this.style.boxShadow=\'none\'">';
-                    
-                    // Image container
                     html += '<div style="position:relative;overflow:hidden;">';
                     html += '<img src="../' + p.image + '" alt="' + p.name + '" style="width:100%;height:256px;object-fit:cover;" loading="lazy" onerror="this.onerror=null;this.src=\'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22256%22%3E%3Crect fill=%22%23f3f4f6%22 width=%22300%22 height=%22256%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%239ca3af%22 font-size=%2214%22%3ENo Image%3C/text%3E%3C/svg%3E\';">';
-                    
-                    // Badge (if exists)
-                    if (p.badge) {
-                        html += '<span style="position:absolute;top:12px;left:12px;background:#0070c7;color:#fff;font-size:0.75rem;font-weight:600;padding:4px 12px;border-radius:20px;">' + p.badge + '</span>';
-                    }
-                    
-                    // Out of stock overlay
-                    if (!p.inStock) {
-                        html += '<div style="position:absolute;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;"><span style="color:#fff;font-weight:700;font-size:1.125rem;">Out of Stock</span></div>';
-                    }
-                    
+                    if (p.badge) html += '<span style="position:absolute;top:12px;left:12px;background:#0070c7;color:#fff;font-size:0.75rem;font-weight:600;padding:4px 12px;border-radius:20px;">' + p.badge + '</span>';
+                    if (!p.inStock) html += '<div style="position:absolute;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;"><span style="color:#fff;font-weight:700;font-size:1.125rem;">Out of Stock</span></div>';
                     html += '</div>';
-                    
-                    // Product info
                     html += '<div style="padding:1.25rem;">';
                     html += '<p style="color:#0070c7;font-size:0.875rem;font-weight:500;margin-bottom:0.25rem;">' + p.category + '</p>';
                     html += '<h3 style="font-size:1.125rem;font-weight:700;color:#111827;margin-bottom:0.5rem;">' + p.name + '</h3>';
                     html += '<p style="color:#4b5563;font-size:0.875rem;margin-bottom:1rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">' + (p.description || '') + '</p>';
-                    
-                    // Rating
-                    if (p.rating) {
-                        html += '<div style="display:flex;align-items:center;margin-bottom:0.75rem;"><span style="color:#f59e0b;">&#9733;</span><span style="font-size:0.875rem;color:#4b5563;margin-left:0.25rem;">' + p.rating + ' (' + p.reviews + ')</span></div>';
-                    }
-                    
-                    // Price and Add to Cart
+                    if (p.rating) html += '<div style="display:flex;align-items:center;margin-bottom:0.75rem;"><span style="color:#f59e0b;">&#9733;</span><span style="font-size:0.875rem;color:#4b5563;margin-left:0.25rem;">' + p.rating + ' (' + p.reviews + ')</span></div>';
                     html += '<div style="display:flex;align-items:center;justify-content:space-between;">';
                     html += '<span style="font-size:1.25rem;font-weight:700;color:#111827;">$' + p.price + '</span>';
-                    if (p.inStock) {
-                        html += '<button class="add-to-cart-btn" data-id="' + p.id + '" style="font-size:0.875rem;background:#0070c7;color:#fff;padding:0.5rem 1rem;border-radius:9999px;border:none;cursor:pointer;transition:background 0.2s;">Add to Cart</button>';
-                    }
+                    if (p.inStock) html += '<button class="add-to-cart-btn" data-id="' + p.id + '" style="font-size:0.875rem;background:#0070c7;color:#fff;padding:0.5rem 1rem;border-radius:9999px;border:none;cursor:pointer;">Add to Cart</button>';
                     html += '</div>';
-                    
-                    // View Details link
                     html += '<a href="../' + p.url + '" style="display:block;margin-top:0.75rem;color:#0070c7;font-weight:500;font-size:0.875rem;text-decoration:none;">View Details &#8594;</a>';
                     html += '</div></div>';
                 });
-                
-                // Insert into grid
                 grid.innerHTML = html;
                 
-                // Add to Cart button handlers
                 grid.querySelectorAll('.add-to-cart-btn').forEach(function(btn) {
                     btn.addEventListener('click', function(e) {
                         e.preventDefault();
                         var orig = this.textContent;
                         this.textContent = 'Adding...';
                         this.disabled = true;
-                        
                         window.NovaCoreAPI.addToCart(this.getAttribute('data-id'), 1)
-                            .then(function() {
-                                btn.textContent = 'Added';
-                                btn.style.background = '#059669'; // Green success
-                                updateCartBadge();
-                                // Reset after 2 seconds
-                                setTimeout(function() {
-                                    btn.textContent = orig;
-                                    btn.style.background = '#0070c7';
-                                    btn.disabled = false;
-                                }, 2000);
-                            })
-                            .catch(function() {
-                                btn.textContent = orig;
-                                btn.disabled = false;
-                            });
+                            .then(function() { btn.textContent = 'Added'; btn.style.background = '#059669'; updateCartBadge(); setTimeout(function() { btn.textContent = orig; btn.style.background = '#0070c7'; btn.disabled = false; }, 2000); })
+                            .catch(function() { btn.textContent = orig; btn.disabled = false; });
                     });
                 });
             }
             
-            // ============================================
-            // UPDATE CART BADGE COUNT
-            // ============================================
             function updateCartBadge() {
                 if (!window.NovaCoreAPI) return;
                 var count = window.NovaCoreAPI.getCartCount();
-                // Update both desktop and mobile badges
                 document.querySelectorAll('#cart-badge, #cart-badge-mobile').forEach(function(badge) {
-                    if (count > 0) {
-                        badge.textContent = count > 99 ? '99+' : count;
-                        badge.classList.remove('hidden');
-                    } else {
-                        badge.classList.add('hidden');
-                    }
+                    if (count > 0) { badge.textContent = count > 99 ? '99+' : count; badge.classList.remove('hidden'); }
+                    else { badge.classList.add('hidden'); }
                 });
             }
             
-            // Listen for cart updates from other pages/tabs
             document.addEventListener('cartUpdated', updateCartBadge);
-            
         })();
     </script>
     
