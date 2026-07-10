@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NovaCore - The Future, Designed for Everyday Life. Innovative products for smarter living.">
+    <title>NovaCore - Innovating Everyday Life</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'novacore': {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            200: '#b9dffd',
+                            300: '#7cc5fc',
+                            400: '#36a9f8',
+                            500: '#0c8ee9',
+                            600: '#0070c7',
+                            700: '#0159a1',
+                            800: '#064b85',
+                            900: '#0b3f6e',
+                            950: '#072849',
+                        },
+                        'accent': {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            200: '#ddd6fe',
+                            300: '#c4b5fd',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            800: '#5b21b6',
+                            900: '#4c1d95',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        'display': ['Space Grotesk', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+    
+    <!-- ============================================ -->
+    <!-- HEADER -->
+    <!-- ============================================ -->
+    <header id="header" class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md border-b border-gray-100 z-50 transition-all duration-300">
+        
+        <!-- ============================================ -->
+        <!-- DESKTOP HEADER -->
+        <!-- ============================================ -->
+        <div class="hidden lg:block relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo (Left) -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center">
+                        <img src="assets/images/logo/logo.jpg" alt="NovaCore" class="h-10 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="text-2xl font-display font-bold text-novacore-600 tracking-wider" style="display: none;">NOVACORE</span>
+                    </a>
+                </div>
+                
+                <!-- Navigation + Icons (Right) -->
+                <div class="flex items-center space-x-3">
+                    <nav class="flex items-center space-x-1">
+                        <!-- Home Link -->
+                        <a href="index.html" class="px-3 py-2 text-gray-700 hover:text-novacore-600 font-medium transition-colors rounded-lg hover:bg-novacore-50">Home</a>
+                        
+                        <!-- Products Dropdown -->
+                        <div class="relative products-group">
+                            <button class="px-3 py-2 text-gray-700 hover:text-novacore-600 font-medium transition-colors rounded-lg hover:bg-novacore-50 flex items-center">
+                                Products
+                                <svg class="dropdown-plus-icon w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                                <svg class="dropdown-minus-icon w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:none;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path></svg>
+                            </button>
+                            <!-- Dropdown Menu -->
+                            <div class="absolute top-full right-0 mt-2 w-64 bg-white rounded-xl shadow-2xl opacity-0 invisible transition-all duration-200 z-50" id="desktop-products-dropdown">
+                                <div class="p-4 space-y-2">
+                                    <a href="categories/aerosip.html" class="block px-4 py-2 rounded-lg hover:bg-novacore-50 text-gray-700 hover:text-novacore-600 transition-colors">AeroSip</a>
+                                    <a href="categories/echolock.html" class="block px-4 py-2 rounded-lg hover:bg-novacore-50 text-gray-700 hover:text-novacore-600 transition-colors">EchoLock</a>
+                                    <a href="categories/blinkband.html" class="block px-4 py-2 rounded-lg hover:bg-novacore-50 text-gray-700 hover:text-novacore-600 transition-colors">BlinkBand</a>
+                                    <a href="categories/misthalo.html" class="block px-4 py-2 rounded-lg hover:bg-novacore-50 text-gray-700 hover:text-novacore-600 transition-colors">MistHalo</a>
+                                    <a href="categories/flexbottle.html" class="block px-4 py-2 rounded-lg hover:bg-novacore-50 text-gray-700 hover:text-novacore-600 transition-colors">FlexBottle</a>
+                                    <div class="border-t border-gray-100 pt-2 mt-2">
+                                        <a href="categories/coming-soon.html" class="block px-4 py-2 rounded-lg hover:bg-novacore-50 text-novacore-600 font-medium transition-colors">Coming Soon</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Labs Link -->
+                        <a href="labs/research.html" class="px-3 py-2 text-gray-700 hover:text-novacore-600 font-medium transition-colors rounded-lg hover:bg-novacore-50">NovaCore Labs</a>
+                        
+                        <!-- About Link -->
+                        <a href="about.html" class="px-3 py-2 text-gray-700 hover:text-novacore-600 font-medium transition-colors rounded-lg hover:bg-novacore-50">About</a>
+                    </nav>
+                    
+                    <!-- Divider -->
+                    <div class="h-6 w-px bg-gray-200 mx-1"></div>
+                    
+                    <!-- Icon Buttons -->
+                    <div class="flex items-center space-x-1">
+                        
+                        <!-- ============================================ -->
+                        <!-- SEARCH ICON - FIXED: Now links to search page -->
+                        <!-- ============================================ -->
+                        <a href="search/search.html" class="p-2 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Search">
+                            <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        </a>
+                        
+                        <!-- ============================================ -->
+                        <!-- CART ICON -->
+                        <!-- ============================================ -->
+                        <a href="Cart/cart.html" class="p-2 rounded-lg hover:bg-gray-100 transition-colors cart-icon-container" aria-label="Cart">
+                            <svg class="w-6 h-6 cart-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Bag Body -->
+                                <path class="cart-bag-body" d="M6 8.5H18C19.1046 8.5 20 9.39543 20 10.5V19.5C20 20.6046 19.1046 21.5 18 21.5H6C4.89543 21.5 4 20.6046 4 19.5V10.5C4 9.39543 4.89543 8.5 6 8.5Z" fill="none" stroke="#1D1D1F" stroke-width="1.25" stroke-linejoin="round"/>
+                                <!-- Bag Handle -->
+                                <path class="cart-bag-handle" d="M7.5 8.5V6.5C7.5 4.01472 9.51472 2 12 2C14.4853 2 16.5 4.01472 16.5 6.5V8.5" stroke="#1D1D1F" stroke-width="1.25" stroke-linecap="round"/>
+                            </svg>
+                            <!-- Cart Badge (hidden when empty) -->
+                            <span id="cart-badge" class="cart-badge hidden">0</span>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- ============================================ -->
+        <!-- MOBILE HEADER -->
+        <!-- ============================================ -->
+        <div class="lg:hidden relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo (Left) -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center">
+                        <img src="assets/images/logo/logo.jpg" alt="NovaCore" class="h-8 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="text-xl font-display font-bold text-novacore-600 tracking-wider" style="display: none;">NOVACORE</span>
+                    </a>
+                </div>
+                
+                <!-- Icons + Menu Toggle (Right) -->
+                <div class="flex items-center space-x-2">
+                    
+                    <!-- ============================================ -->
+                    <!-- SEARCH ICON (Mobile) - FIXED: Links to search page -->
+                    <!-- ============================================ -->
+                    <a href="search/search.html" class="p-2 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Search">
+                        <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </a>
+                    
+                    <!-- Cart Icon (Mobile) -->
+                    <a href="Cart/cart.html" class="p-2 rounded-lg hover:bg-gray-100 transition-colors cart-icon-container" aria-label="Cart">
+                        <svg class="w-6 h-6 cart-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="cart-bag-body" d="M6 8.5H18C19.1046 8.5 20 9.39543 20 10.5V19.5C20 20.6046 19.1046 21.5 18 21.5H6C4.89543 21.5 4 20.6046 4 19.5V10.5C4 9.39543 4.89543 8.5 6 8.5Z" fill="none" stroke="#1D1D1F" stroke-width="1.25" stroke-linejoin="round"/>
+                            <path class="cart-bag-handle" d="M7.5 8.5V6.5C7.5 4.01472 9.51472 2 12 2C14.4853 2 16.5 4.01472 16.5 6.5V8.5" stroke="#1D1D1F" stroke-width="1.25" stroke-linecap="round"/>
+                        </svg>
+                        <span id="cart-badge-mobile" class="cart-badge hidden">0</span>
+                    </a>
+                    
+                    <!-- Hamburger Menu Toggle (Right Side) -->
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Toggle menu" aria-expanded="false">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- ============================================ -->
+        <!-- SEARCH OVERLAY - REMOVED (search now goes to search.html) -->
+        <!-- Previously there was a search overlay div here -->
+        <!-- ============================================ -->
+        
+    </header>
+    
+    <!-- ============================================ -->
+    <!-- MOBILE SIDEBAR (Slides from RIGHT with Blur) -->
+    <!-- ============================================ -->
+    <div id="mobile-sidebar" class="fixed inset-0 z-50 lg:hidden" style="transform: translateX(100%); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);">
+        <!-- Blurred Background Overlay -->
+        <div id="sidebar-overlay" class="absolute inset-0 bg-black/40 backdrop-blur-md" style="opacity: 0; transition: opacity 0.3s ease;"></div>
+        
+        <!-- Sidebar Panel -->
+        <div id="sidebar-panel" class="absolute top-0 right-0 w-80 max-w-[85vw] h-full bg-white shadow-2xl overflow-y-auto" style="transform: translateX(20px); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);">
+            <div class="p-6">
+                
+                <!-- Sidebar Logo -->
+                <div class="mb-8 text-center">
+                    <a href="index.html" class="inline-flex items-center justify-center">
+                        <img src="assets/images/logo/logo.jpg" alt="NovaCore" class="h-8 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="text-xl font-display font-bold text-novacore-600" style="display: none;">NOVACORE</span>
+                    </a>
+                </div>
+                
+                <!-- Sidebar Navigation -->
+                <nav class="space-y-2">
+                    <!-- Home -->
+                    <a href="index.html" class="flex items-center px-4 py-3 text-gray-700 hover:text-novacore-600 hover:bg-novacore-50 rounded-lg font-medium transition-colors">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        Home
+                    </a>
+                    
+                    <!-- Products Dropdown (Accordion) -->
+                    <div>
+                        <button class="sidebar-dropdown-btn w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:text-novacore-600 hover:bg-novacore-50 rounded-lg font-medium transition-colors">
+                            <span class="flex items-center">
+                                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                                Products
+                            </span>
+                            <svg class="sidebar-plus-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                            <svg class="sidebar-minus-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:none;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path></svg>
+                        </button>
+                        <div class="sidebar-dropdown overflow-hidden" style="max-height: 0; transition: max-height 0.3s ease;">
+                            <div class="pl-12 space-y-1 mt-1 pb-2">
+                                <a href="categories/aerosip.html" class="block px-4 py-2 text-gray-600 hover:text-novacore-600 hover:bg-novacore-50 rounded-lg text-sm transition-colors">AeroSip</a>
+                                <a href="categories/echolock.html" class="block px-4 py-2 text-gray-600 hover:text-novacore-600 hover:bg-novacore-50 rounded-lg text-sm transition-colors">EchoLock</a>
+                                <a href="categories/blinkband.html" class="block px-4 py-2 text-gray-600 hover:text-novacore-600 hover:bg-novacore-50 rounded-lg text-sm transition-colors">BlinkBand</a>
+                                <a href="categories/misthalo.html" class="block px-4 py-2 text-gray-600 hover:text-novacore-600 hover:bg-novacore-50 rounded-lg text-sm transition-colors">MistHalo</a>
+                                <a href="categories/flexbottle.html" class="block px-4 py-2 text-gray-600 hover:text-novacore-600 hover:bg-novacore-50 rounded-lg text-sm transition-colors">FlexBottle</a>
+                                <a href="categories/coming-soon.html" class="block px-4 py-2 text-novacore-600 hover:text-novacore-700 hover:bg-novacore-50 rounded-lg text-sm font-medium transition-colors">Coming Soon</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Labs -->
+                    <a href="labs/research.html" class="flex items-center px-4 py-3 text-gray-700 hover:text-novacore-600 hover:bg-novacore-50 rounded-lg font-medium transition-colors">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                        NovaCore Labs
+                    </a>
+                    
+                    <!-- About -->
+                    <a href="about.html" class="flex items-center px-4 py-3 text-gray-700 hover:text-novacore-600 hover:bg-novacore-50 rounded-lg font-medium transition-colors">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        About
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ============================================ -->
+    <!-- MAIN CONTENT -->
+    <!-- ============================================ -->
+    <main class="pt-20">
+        
+        <!-- ============================================ -->
+        <!-- HERO SECTION -->
+        <!-- ============================================ -->
+        <section class="relative bg-gradient-to-br from-novacore-900 via-novacore-800 to-novacore-700 text-white overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+            </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 relative">
+                <div class="max-w-3xl">
+                    <!-- Pulse dot badge -->
+                    <div class="inline-flex items-center bg-white/20 backdrop-blur-sm rounded-full px-3 py-1.5 mb-6 animate-fade-in">
+                        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                    </div>
+                    <!-- Hero heading -->
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 leading-tight animate-slide-up">The Future, <br class="hidden md:block">Designed for <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300">Everyday Life.</span></h1>
+                    <!-- Hero subtext -->
+                    <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl animate-slide-up" style="animation-delay: 0.2s;">NovaCore creates innovative products that make everyday living smarter, safer, and more sustainable.</p>
+                    <!-- CTA Button -->
+                    <div class="flex flex-col sm:flex-row gap-4 animate-slide-up" style="animation-delay: 0.4s;">
+                        <a href="categories/aerosip.html" class="inline-flex items-center justify-center px-8 py-4 bg-white text-novacore-700 font-semibold rounded-full hover:bg-gray-100 transition-colors transform hover:scale-105">Explore Products<svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg></a>
+                    </div>
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-8 mt-16 pt-12 border-t border-white/20">
+                        <div><div class="text-3xl font-bold">50K+</div><div class="text-sm text-gray-300 mt-1">Happy Customers</div></div>
+                        <div><div class="text-3xl font-bold">5</div><div class="text-sm text-gray-300 mt-1">Product Lines</div></div>
+                        <div><div class="text-3xl font-bold">98%</div><div class="text-sm text-gray-300 mt-1">Satisfaction Rate</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ============================================ -->
+        <!-- FEATURED CATEGORIES -->
+        <!-- ============================================ -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">Explore Our Innovations</h2><p class="text-lg text-gray-600 max-w-2xl mx-auto">Discover how NovaCore is transforming everyday experiences through smart technology.</p></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- AeroSip -->
+                    <div class="group relative bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"><div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 overflow-hidden"><img src="assets/images/featured-categories/aerosip.png" alt="AeroSip" class="w-full h-full object-cover" onerror="this.style.display='none'"></div><h3 class="text-xl font-bold text-gray-900 mb-2">Smart Hydration</h3><p class="text-gray-600 mb-4">Intelligent water bottles that track your hydration and keep drinks at the perfect temperature.</p><a href="categories/aerosip.html" class="inline-flex items-center text-novacore-600 font-medium hover:text-novacore-700">Explore AeroSip <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a></div>
+                    <!-- EchoLock -->
+                    <div class="group relative bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"><div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 overflow-hidden"><img src="assets/images/featured-categories/echolock.png" alt="EchoLock" class="w-full h-full object-cover" onerror="this.style.display='none'"></div><h3 class="text-xl font-bold text-gray-900 mb-2">Smart Security</h3><p class="text-gray-600 mb-4">Advanced door locks with AI-powered recognition and seamless smartphone integration.</p><a href="categories/echolock.html" class="inline-flex items-center text-accent-600 font-medium hover:text-accent-700">Explore EchoLock <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a></div>
+                    <!-- BlinkBand -->
+                    <div class="group relative bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"><div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 overflow-hidden"><img src="assets/images/featured-categories/blinkband.png" alt="BlinkBand" class="w-full h-full object-cover" onerror="this.style.display='none'"></div><h3 class="text-xl font-bold text-gray-900 mb-2">Smart Wearables</h3><p class="text-gray-600 mb-4">Next-generation wearable devices that enhance your health, safety, and daily routine.</p><a href="categories/blinkband.html" class="inline-flex items-center text-green-600 font-medium hover:text-green-700">Explore BlinkBand <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a></div>
+                    <!-- MistHalo -->
+                    <div class="group relative bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"><div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 overflow-hidden"><img src="assets/images/featured-categories/misthalo.png" alt="MistHalo" class="w-full h-full object-cover" onerror="this.style.display='none'"></div><h3 class="text-xl font-bold text-gray-900 mb-2">Personal Climate</h3><p class="text-gray-600 mb-4">Wearable cooling and heating technology that keeps you comfortable in any environment.</p><a href="categories/misthalo.html" class="inline-flex items-center text-orange-600 font-medium hover:text-orange-700">Explore MistHalo <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a></div>
+                    <!-- FlexBottle -->
+                    <div class="group relative bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"><div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 overflow-hidden"><img src="assets/images/featured-categories/flexbottle.png" alt="FlexBottle" class="w-full h-full object-cover" onerror="this.style.display='none'"></div><h3 class="text-xl font-bold text-gray-900 mb-2">Travel Tech</h3><p class="text-gray-600 mb-4">Portable smart devices designed to make your travel experience seamless and enjoyable.</p><a href="categories/flexbottle.html" class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-700">Explore FlexBottle <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a></div>
+                    <!-- Future Concepts -->
+                    <div class="group relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 text-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"><div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-400 rounded-2xl flex items-center justify-center mb-6"><svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div><h3 class="text-xl font-bold mb-2">Future Concepts</h3><p class="text-gray-300 mb-4">Peek into tomorrow with our experimental prototypes and upcoming innovations.</p><a href="categories/coming-soon.html" class="inline-flex items-center text-blue-300 font-medium hover:text-blue-200">Explore Labs <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ============================================ -->
+        <!-- WHY NOVACORE -->
+        <!-- ============================================ -->
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">Why NovaCore?</h2><p class="text-lg text-gray-600 max-w-2xl mx-auto">We combine cutting-edge technology with human-centered design to create products that truly enhance your life.</p></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-2xl p-8 shadow-sm"><div class="w-12 h-12 bg-novacore-100 rounded-xl flex items-center justify-center mb-4"><svg class="w-6 h-6 text-novacore-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg></div><h3 class="text-lg font-bold text-gray-900 mb-2">Human-Centered Design</h3><p class="text-gray-600">Every product is designed with the user in mind, ensuring intuitive and delightful experiences.</p></div>
+                    <div class="bg-white rounded-2xl p-8 shadow-sm"><div class="w-12 h-12 bg-accent-100 rounded-xl flex items-center justify-center mb-4"><svg class="w-6 h-6 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg></div><h3 class="text-lg font-bold text-gray-900 mb-2">AI-Powered Technology</h3><p class="text-gray-600">Advanced artificial intelligence that learns from your habits and adapts to your lifestyle.</p></div>
+                    <div class="bg-white rounded-2xl p-8 shadow-sm"><div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4"><svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div><h3 class="text-lg font-bold text-gray-900 mb-2">Sustainable Materials</h3><p class="text-gray-600">Eco-friendly materials and manufacturing processes that minimize environmental impact.</p></div>
+                    <div class="bg-white rounded-2xl p-8 shadow-sm"><div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center mb-4"><svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg></div><h3 class="text-lg font-bold text-gray-900 mb-2">Premium Build Quality</h3><p class="text-gray-600">Military-grade materials and rigorous testing ensure our products stand the test of time.</p></div>
+                    <div class="bg-white rounded-2xl p-8 shadow-sm"><div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4"><svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.858 15.355-5.858 21.213 0"></path></svg></div><h3 class="text-lg font-bold text-gray-900 mb-2">Seamless Connectivity</h3><p class="text-gray-600">All NovaCore products work together in perfect harmony through our unified smart ecosystem.</p></div>
+                    <div class="bg-white rounded-2xl p-8 shadow-sm"><div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4"><svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div><h3 class="text-lg font-bold text-gray-900 mb-2">Future-Ready Products</h3><p class="text-gray-600">Over-the-air updates and modular designs ensure your devices improve over time.</p></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ============================================ -->
+        <!-- FEATURED PRODUCTS (Dynamic) -->
+        <!-- ============================================ -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between mb-12">
+                    <div><h2 class="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-2">Featured Products</h2><p class="text-gray-600">Discover our latest innovations</p></div>
+                    <a href="categories/aerosip.html" class="hidden md:inline-flex items-center text-novacore-600 font-medium hover:text-novacore-700">View All Products <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
+                </div>
+                <!-- Products loaded dynamically via JS -->
+                <div id="featured-products-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="col-span-full flex justify-center items-center py-20">
+                        <div class="text-center">
+                            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-novacore-600 mx-auto mb-4"></div>
+                            <p class="text-gray-500">Loading products...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ============================================ -->
+        <!-- NOVACORE LABS -->
+        <!-- ============================================ -->
+        <section class="py-20 bg-gradient-to-br from-gray-900 to-novacore-900 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div><div class="inline-flex items-center bg-white/10 rounded-full px-4 py-2 mb-6"><span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span><span class="text-sm font-medium">NovaCore Labs</span></div><h2 class="text-3xl md:text-4xl font-display font-bold mb-6">Where Tomorrow Becomes Today</h2><p class="text-lg text-gray-300 mb-8">Our research division is constantly pushing the boundaries of what's possible.</p><div class="flex flex-col sm:flex-row gap-4"><a href="labs/research.html" class="inline-flex items-center justify-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full hover:bg-gray-100 transition-colors">Explore Labs <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg></a><a href="labs/prototypes.html" class="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-gray-900 transition-colors">View Prototypes</a></div></div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8"><h3 class="text-xl font-bold mb-6 flex items-center"><svg class="w-6 h-6 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>Coming Soon</h3><div class="space-y-4"><div class="bg-white/5 rounded-lg p-4"><div class="flex items-center justify-between mb-2"><h4 class="font-semibold">NovaVision AR</h4><span class="text-xs bg-green-400 text-gray-900 px-2 py-1 rounded-full">Q4 2026</span></div><p class="text-sm text-gray-300">Augmented reality glasses for everyday use.</p></div><div class="bg-white/5 rounded-lg p-4"><div class="flex items-center justify-between mb-2"><h4 class="font-semibold">SmartMat Pro</h4><span class="text-xs bg-blue-400 text-gray-900 px-2 py-1 rounded-full">Q1 2027</span></div><p class="text-sm text-gray-300">AI-powered yoga and fitness mat with pose detection.</p></div><div class="bg-white/5 rounded-lg p-4"><div class="flex items-center justify-between mb-2"><h4 class="font-semibold">AirSense Monitor</h4><span class="text-xs bg-purple-400 text-gray-900 px-2 py-1 rounded-full">Q2 2027</span></div><p class="text-sm text-gray-300">Whole-home air quality monitoring system.</p></div></div></div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- ============================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================ -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <!-- Support Links -->
+                <div><h3 class="text-lg font-bold mb-4">Support</h3><ul class="space-y-2">
+                    <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Warranty</a></li>
+                    <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Shipping & Returns</a></li>
+                    <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                </ul></div>
+                <!-- Legal Links -->
+                <div><h3 class="text-lg font-bold mb-4">Legal</h3><ul class="space-y-2">
+                    <li><a href="privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                    <li><a href="cookie-policy.html" class="text-gray-400 hover:text-white transition-colors">Cookie Policy</a></li>
+                </ul></div>
+                <!-- Social Connect -->
+                <div><h3 class="text-lg font-bold mb-4">Connect</h3>
+                    <div class="flex items-center gap-x-2">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 hover:scale-110 transition-transform" style="background-color: #1877F2;" aria-label="Facebook"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#ffffff"/></svg></a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 hover:scale-110 transition-transform" style="background-color: #E4405F;" aria-label="Instagram"><svg class="w-4 h-4" viewBox="0 0 24 24"><path fill="#ffffff" d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg></a>
+                        <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 hover:scale-110 transition-transform" style="background-color: #000000;" aria-label="X (Twitter)"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#ffffff"/></svg></a>
+                        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 hover:scale-110 transition-transform" style="background-color: #000000;" aria-label="TikTok"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#ffffff"/></svg></a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 hover:scale-110 transition-transform" style="background-color: #FF0000;" aria-label="YouTube"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#ffffff"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Copyright -->
+            <div class="pt-8 border-t border-gray-800 text-center"><p class="text-gray-400">&copy; 2026 NovaCore. Innovating Everyday Life.</p></div>
+        </div>
+    </footer>
+    
+    <!-- ============================================ -->
+    <!-- SCRIPTS -->
+    <!-- ============================================ -->
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/script.js"></script>
+    
+</body>
+</html>
