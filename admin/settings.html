@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NovaCore Admin - Settings">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Settings - NovaCore Admin</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'novacore': {
+                            50: '#f0f7ff', 100: '#e0effe', 200: '#b9dffd', 300: '#7cc5fc',
+                            400: '#36a9f8', 500: '#0c8ee9', 600: '#0070c7', 700: '#0159a1',
+                            800: '#064b85', 900: '#0b3f6e', 950: '#072849',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        'display': ['Space Grotesk', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    
+</head>
+<body class="bg-gray-100 font-sans antialiased">
+    
+    <!-- ============================================ -->
+    <!-- ADMIN LAYOUT CONTAINER -->
+    <!-- ============================================ -->
+    <div class="flex min-h-screen">
+        
+        <!-- ============================================ -->
+        <!-- SIDEBAR OVERLAY (Mobile only - dark backdrop) -->
+        <!-- Appears when sidebar is open on mobile -->
+        <!-- Clicking it closes the sidebar -->
+        <!-- ============================================ -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden" onclick="closeSidebar()"></div>
+        
+        <!-- ============================================ -->
+        <!-- SIDEBAR NAVIGATION -->
+        <!-- Fixed on desktop, slides from left on mobile -->
+        <!-- ============================================ -->
+        <aside id="admin-sidebar" class="fixed lg:sticky lg:flex lg:flex-col w-64 bg-novacore-900 text-white inset-y-0 left-0 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+            
+            <!-- Sidebar Logo Header -->
+            <div class="flex items-center h-16 px-6 border-b border-novacore-800">
+                <a href="dashboard.html" class="text-xl font-display font-bold tracking-wider">NOVACORE</a>
+                <span class="text-xs bg-novacore-600 px-2 py-0.5 rounded ml-2">ADMIN</span>
+            </div>
+            
+            <!-- Sidebar Navigation Links -->
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                
+                <!-- Dashboard -->
+                <a href="dashboard.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    Dashboard
+                </a>
+                
+                <!-- Products -->
+                <a href="products.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                    Products
+                </a>
+                
+                <!-- Orders -->
+                <a href="orders.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+                    Orders
+                </a>
+                
+                <!-- Customers -->
+                <a href="customers.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    Customers
+                </a>
+                
+                <!-- Inventory -->
+                <a href="inventory.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
+                    Inventory
+                </a>
+                
+                <!-- Analytics -->
+                <a href="analytics.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    Analytics
+                </a>
+                
+                <!-- Settings (Active/Current Page) -->
+                <a href="settings.html" class="flex items-center px-3 py-2.5 rounded-lg bg-novacore-700 text-white font-medium text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    Settings
+                </a>
+                
+            </nav>
+            
+            <!-- Sidebar Footer - Logout Button -->
+            <div class="px-4 py-4 border-t border-novacore-800">
+                <button id="logout-btn" class="flex items-center w-full px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                    Logout
+                </button>
+            </div>
+            
+        </aside>
+        
+        <!-- ============================================ -->
+        <!-- MAIN CONTENT AREA -->
+        <!-- ============================================ -->
+        <div class="flex-1 lg:ml-64">
+            
+            <!-- Top Bar Header -->
+            <header class="bg-white border-b border-gray-200 sticky top-0 z-30">
+                <div class="flex items-center justify-between h-16 px-6">
+                    
+                    <!-- Left: Toggle Button + Page Title -->
+                    <div class="flex items-center gap-3">
+                        
+                        <!-- ============================================ -->
+                        <!-- MOBILE SIDEBAR TOGGLE BUTTON -->
+                        <!-- Only visible on mobile screens (hidden on lg+) -->
+                        <!-- ============================================ -->
+                        <button id="sidebar-toggle" class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Toggle sidebar" onclick="toggleSidebar()">
+                            <!-- Hamburger icon -->
+                            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        </button>
+                        
+                        <!-- Page Title -->
+                        <h1 class="text-lg font-bold text-gray-900">Settings</h1>
+                    </div>
+                    
+                    <!-- Right: Admin Avatar -->
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-novacore-600 rounded-full flex items-center justify-center text-white text-sm font-bold">A</div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Settings Content -->
+            <main class="p-6 max-w-2xl">
+                
+                <!-- ============================================ -->
+                <!-- SECTION 1: ADMIN PROFILE -->
+                <!-- Displays current admin info (read-only) -->
+                <!-- ============================================ -->
+                <div class="bg-white rounded-2xl border border-gray-100 p-6 mb-6">
+                    
+                    <!-- Section Title -->
+                    <h2 class="font-bold text-gray-900 mb-4">Admin Profile</h2>
+                    
+                    <div class="space-y-4">
+                        
+                        <!-- Email Field (read-only - cannot change) -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input 
+                                type="email" 
+                                id="settings-email" 
+                                class="w-full px-4 py-2.5 border border-gray-200 rounded-xl bg-gray-50 text-sm text-gray-500" 
+                                value="admin@novacore.com" 
+                                readonly
+                            >
+                            <p class="text-xs text-gray-400 mt-1">Admin email cannot be changed.</p>
+                        </div>
+                        
+                        <!-- Role Field (read-only) -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Role</label>
+                            <input 
+                                type="text" 
+                                class="w-full px-4 py-2.5 border border-gray-200 rounded-xl bg-gray-50 text-sm text-gray-500" 
+                                value="Administrator" 
+                                readonly
+                            >
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <!-- ============================================ -->
+                <!-- SECTION 2: CHANGE PASSWORD -->
+                <!-- Demo password change form -->
+                <!-- Current default: admin123 -->
+                <!-- ============================================ -->
+                <div class="bg-white rounded-2xl border border-gray-100 p-6 mb-6">
+                    
+                    <!-- Section Title -->
+                    <h2 class="font-bold text-gray-900 mb-4">Change Password</h2>
+                    
+                    <!-- Password Form -->
+                    <form id="password-form" class="space-y-4">
+                        
+                        <!-- Current Password -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Current Password</label>
+                            <input 
+                                type="password" 
+                                id="current-password" 
+                                class="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-novacore-500 text-sm" 
+                                placeholder="Enter current password"
+                                required
+                            >
+                        </div>
+                        
+                        <!-- New Password -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">New Password</label>
+                            <input 
+                                type="password" 
+                                id="new-password" 
+                                class="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-novacore-500 text-sm" 
+                                placeholder="Enter new password (min 6 characters)"
+                                required
+                            >
+                        </div>
+                        
+                        <!-- Confirm New Password -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Confirm New Password</label>
+                            <input 
+                                type="password" 
+                                id="confirm-password" 
+                                class="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-novacore-500 text-sm" 
+                                placeholder="Re-enter new password"
+                                required
+                            >
+                        </div>
+                        
+                        <!-- Feedback Message (hidden until form submission) -->
+                        <div id="password-msg" class="hidden text-sm p-3 rounded-xl"></div>
+                        
+                        <!-- Submit Button -->
+                        <button 
+                            type="submit" 
+                            class="bg-novacore-600 text-white font-semibold px-6 py-2.5 rounded-full hover:bg-novacore-700 transition-colors text-sm"
+                        >
+                            Update Password
+                        </button>
+                        
+                    </form>
+                </div>
+                
+                <!-- ============================================ -->
+                <!-- SECTION 3: DANGER ZONE -->
+                <!-- Allows clearing all stored data -->
+                <!-- Destructive action - cannot be undone -->
+                <!-- ============================================ -->
+                <div class="bg-white rounded-2xl border border-red-100 p-6">
+                    
+                    <!-- Section Title (red to indicate danger) -->
+                    <h2 class="font-bold text-red-600 mb-4">Danger Zone</h2>
+                    
+                    <!-- Warning text -->
+                    <p class="text-sm text-gray-500 mb-4">
+                        Clear all stored data including orders, customers, subscribers, and messages. 
+                        <strong class="text-red-600">This action cannot be undone.</strong>
+                    </p>
+                    
+                    <!-- Clear Data Button -->
+                    <button 
+                        id="clear-data-btn" 
+                        class="bg-red-50 text-red-600 font-semibold px-6 py-2.5 rounded-full hover:bg-red-100 transition-colors text-sm border border-red-200"
+                    >
+                        Clear All Data
+                    </button>
+                    
+                    <!-- Feedback message (hidden until action) -->
+                    <p id="clear-data-msg" class="hidden text-sm mt-3"></p>
+                    
+                </div>
+                
+            </main>
+            
+        </div>
+        
+    </div>
+    
+    <!-- ============================================ -->
+    <!-- SCRIPTS -->
+    <!-- ============================================ -->
+    <script>
+        
+        // ============================================
+        // SIDEBAR TOGGLE FUNCTIONS (Global Scope)
+        // ============================================
+        var sidebarOpen = false;
+        
+        /**
+         * Toggle the admin sidebar on mobile devices
+         * Slides sidebar from left with dark overlay backdrop
+         */
+        function toggleSidebar() {
+            var sidebar = document.getElementById('admin-sidebar');
+            var overlay = document.getElementById('sidebar-overlay');
+            
+            sidebarOpen = !sidebarOpen;
+            
+            if (sidebarOpen) {
+                // OPEN: slide sidebar into view
+                sidebar.classList.remove('-translate-x-full');
+                sidebar.classList.add('translate-x-0');
+                if (overlay) overlay.classList.remove('hidden');  // Show dark backdrop
+                document.body.style.overflow = 'hidden';          // Lock background scroll
+            } else {
+                // CLOSE: slide sidebar out of view
+                sidebar.classList.add('-translate-x-full');
+                sidebar.classList.remove('translate-x-0');
+                if (overlay) overlay.classList.add('hidden');     // Hide backdrop
+                document.body.style.overflow = '';                // Restore scroll
+            }
+        }
+        
+        /**
+         * Close the sidebar
+         * Called by: overlay click, Escape key, window resize to desktop
+         */
+        function closeSidebar() {
+            var sidebar = document.getElementById('admin-sidebar');
+            var overlay = document.getElementById('sidebar-overlay');
+            
+            sidebarOpen = false;
+            sidebar.classList.add('-translate-x-full');
+            sidebar.classList.remove('translate-x-0');
+            if (overlay) overlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+        
+        // ============================================
+        // PAGE INITIALIZATION
+        // ============================================
+        (function() {
+            'use strict';
+            
+            // Run when DOM is fully loaded
+            document.addEventListener('DOMContentLoaded', function() {
+                checkAuth(); // Verify admin login session
+                
+                // ============================================
+                // LOGOUT BUTTON HANDLER
+                // Clears session and redirects to login
+                // ============================================
+                document.getElementById('logout-btn').addEventListener('click', function() {
+                    localStorage.removeItem('novacore_admin_session');
+                    window.location.href = 'login.html';
+                });
+                
+                // ============================================
+                // PASSWORD CHANGE FORM HANDLER
+                // Validates and simulates password update
+                // Current demo password: admin123
+                // ============================================
+                document.getElementById('password-form').addEventListener('submit', function(e) {
+                    e.preventDefault(); // Prevent page reload
+                    
+                    // Get form values
+                    var current = document.getElementById('current-password').value;
+                    var newPass = document.getElementById('new-password').value;
+                    var confirm = document.getElementById('confirm-password').value;
+                    var msg = document.getElementById('password-msg');
+                    
+                    // Validation 1: Check current password (demo: admin123)
+                    if (current !== 'admin123') {
+                        showPasswordMessage('Current password is incorrect.', 'error');
+                        return;
+                    }
+                    
+                    // Validation 2: New password minimum length (6 characters)
+                    if (newPass.length < 6) {
+                        showPasswordMessage('New password must be at least 6 characters.', 'error');
+                        return;
+                    }
+                    
+                    // Validation 3: Passwords must match
+                    if (newPass !== confirm) {
+                        showPasswordMessage('Passwords do not match.', 'error');
+                        return;
+                    }
+                    
+                    // All validations passed - show success
+                    showPasswordMessage('Password updated successfully! (Demo mode - resets on page reload)', 'success');
+                    
+                    // Clear all password fields after success
+                    document.getElementById('current-password').value = '';
+                    document.getElementById('new-password').value = '';
+                    document.getElementById('confirm-password').value = '';
+                });
+                
+                // ============================================
+                // CLEAR ALL DATA BUTTON HANDLER
+                // Removes all localStorage data for the site
+                // Asks for confirmation before proceeding
+                // ============================================
+                document.getElementById('clear-data-btn').addEventListener('click', function() {
+                    // Double-confirm with the user (destructive action)
+                    if (confirm('Are you sure? This will permanently delete all orders, customers, subscribers, and messages. This cannot be undone.')) {
+                        
+                        // Remove all stored data from localStorage
+                        localStorage.removeItem('novacore_orders');       // Order history
+                        localStorage.removeItem('novacore_subscribers'); // Newsletter subscribers
+                        localStorage.removeItem('novacore_messages');    // Contact form messages
+                        localStorage.removeItem('novacore_cart');        // Shopping cart data
+                        // NOTE: Admin session is preserved so user stays logged in
+                        
+                        // Show success feedback
+                        var msg = document.getElementById('clear-data-msg');
+                        msg.className = 'text-sm mt-3 text-green-600';
+                        msg.textContent = '✓ All data cleared successfully. Orders, customers, subscribers, and messages have been removed.';
+                        msg.classList.remove('hidden');
+                        
+                        // Auto-hide message after 5 seconds
+                        setTimeout(function() { 
+                            msg.classList.add('hidden'); 
+                        }, 5000);
+                    }
+                });
+                
+                // ============================================
+                // KEYBOARD + RESIZE HANDLERS
+                // ============================================
+                
+                // Close sidebar on Escape key press
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && sidebarOpen) {
+                        closeSidebar();
+                    }
+                });
+                
+                // Auto-close sidebar when resizing to desktop width
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth >= 1024 && sidebarOpen) {
+                        closeSidebar();
+                    }
+                });
+            });
+            
+            /**
+             * Verify admin authentication
+             * Checks localStorage for valid session (24-hour expiry)
+             * Redirects to login page if invalid
+             */
+            function checkAuth() {
+                var session = localStorage.getItem('novacore_admin_session');
+                
+                // No session found - redirect to login
+                if (!session) {
+                    window.location.href = 'login.html';
+                    return;
+                }
+                
+                // Check session expiry
+                try {
+                    var data = JSON.parse(session);
+                    var loggedInAt = new Date(data.loggedInAt);
+                    var now = new Date();
+                    var hoursDiff = (now - loggedInAt) / (1000 * 60 * 60);
+                    
+                    // Session expired (older than 24 hours)
+                    if (hoursDiff >= 24) {
+                        localStorage.removeItem('novacore_admin_session');
+                        window.location.href = 'login.html';
+                    }
+                } catch(e) {
+                    // Invalid session data
+                    localStorage.removeItem('novacore_admin_session');
+                    window.location.href = 'login.html';
+                }
+            }
+            
+            /**
+             * Display password feedback message
+             * @param {string} message - The message to display
+             * @param {string} type - 'success' (green) or 'error' (red)
+             */
+            function showPasswordMessage(message, type) {
+                var msg = document.getElementById('password-msg');
+                
+                // Set appropriate styling based on message type
+                if (type === 'success') {
+                    msg.className = 'text-sm p-3 rounded-xl bg-green-50 text-green-600 border border-green-200';
+                } else {
+                    msg.className = 'text-sm p-3 rounded-xl bg-red-50 text-red-600 border border-red-200';
+                }
+                
+                // Display the message
+                msg.textContent = message;
+                msg.classList.remove('hidden');
+                
+                // Auto-hide after 4 seconds
+                setTimeout(function() {
+                    msg.classList.add('hidden');
+                }, 4000);
+            }
+            
+        })();
+    </script>
+    
+</body>
+</html>

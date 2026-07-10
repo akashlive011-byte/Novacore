@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NovaCore Admin - Inventory Management">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Inventory - NovaCore Admin</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'novacore': {
+                            50: '#f0f7ff', 100: '#e0effe', 200: '#b9dffd', 300: '#7cc5fc',
+                            400: '#36a9f8', 500: '#0c8ee9', 600: '#0070c7', 700: '#0159a1',
+                            800: '#064b85', 900: '#0b3f6e', 950: '#072849',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        'display': ['Space Grotesk', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    
+</head>
+<body class="bg-gray-100 font-sans antialiased">
+    
+    <!-- ============================================ -->
+    <!-- ADMIN LAYOUT CONTAINER -->
+    <!-- ============================================ -->
+    <div class="flex min-h-screen">
+        
+        <!-- ============================================ -->
+        <!-- SIDEBAR OVERLAY (Mobile only) -->
+        <!-- Dark backdrop that appears when sidebar is open -->
+        <!-- Clicking it closes the sidebar -->
+        <!-- ============================================ -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden" onclick="closeSidebar()"></div>
+        
+        <!-- ============================================ -->
+        <!-- SIDEBAR NAVIGATION -->
+        <!-- Fixed position on desktop (always visible) -->
+        <!-- Slides in from left on mobile when toggled -->
+        <!-- ============================================ -->
+        <aside id="admin-sidebar" class="fixed lg:sticky lg:flex lg:flex-col w-64 bg-novacore-900 text-white inset-y-0 left-0 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+            
+            <!-- Sidebar Logo Header -->
+            <div class="flex items-center h-16 px-6 border-b border-novacore-800">
+                <a href="dashboard.html" class="text-xl font-display font-bold tracking-wider">NOVACORE</a>
+                <span class="text-xs bg-novacore-600 px-2 py-0.5 rounded ml-2">ADMIN</span>
+            </div>
+            
+            <!-- Sidebar Navigation Links -->
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                
+                <!-- Dashboard Link -->
+                <a href="dashboard.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    Dashboard
+                </a>
+                
+                <!-- Products Link -->
+                <a href="products.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                    Products
+                </a>
+                
+                <!-- Orders Link -->
+                <a href="orders.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+                    Orders
+                </a>
+                
+                <!-- Customers Link -->
+                <a href="customers.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    Customers
+                </a>
+                
+                <!-- Inventory Link (Active/Current Page) -->
+                <a href="inventory.html" class="flex items-center px-3 py-2.5 rounded-lg bg-novacore-700 text-white font-medium text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
+                    Inventory
+                </a>
+                
+                <!-- Analytics Link -->
+                <a href="analytics.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    Analytics
+                </a>
+                
+                <!-- Settings Link -->
+                <a href="settings.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    Settings
+                </a>
+                
+            </nav>
+            
+            <!-- Sidebar Footer - Logout Button -->
+            <div class="px-4 py-4 border-t border-novacore-800">
+                <button id="logout-btn" class="flex items-center w-full px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                    Logout
+                </button>
+            </div>
+            
+        </aside>
+        
+        <!-- ============================================ -->
+        <!-- MAIN CONTENT AREA -->
+        <!-- ============================================ -->
+        <div class="flex-1 lg:ml-64">
+            
+            <!-- Top Bar Header -->
+            <header class="bg-white border-b border-gray-200 sticky top-0 z-30">
+                <div class="flex items-center justify-between h-16 px-6">
+                    
+                    <!-- Left: Toggle Button + Page Title -->
+                    <div class="flex items-center gap-3">
+                        
+                        <!-- ============================================ -->
+                        <!-- MOBILE SIDEBAR TOGGLE BUTTON -->
+                        <!-- Only visible on mobile screens (hidden on lg+) -->
+                        <!-- Clicking opens/closes the sidebar -->
+                        <!-- ============================================ -->
+                        <button id="sidebar-toggle" class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Toggle sidebar" onclick="toggleSidebar()">
+                            <!-- Three-line hamburger icon -->
+                            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        </button>
+                        
+                        <!-- Page Title -->
+                        <h1 class="text-lg font-bold text-gray-900">Inventory</h1>
+                    </div>
+                    
+                    <!-- Right: Inventory Summary -->
+                    <div class="flex items-center space-x-3">
+                        <span class="text-sm text-gray-500" id="inventory-summary">Loading...</span>
+                        <!-- Admin Avatar -->
+                        <div class="w-8 h-8 bg-novacore-600 rounded-full flex items-center justify-center text-white text-sm font-bold">A</div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Inventory Content -->
+            <main class="p-6">
+                
+                <!-- ============================================ -->
+                <!-- INVENTORY STATS CARDS -->
+                <!-- Three cards showing product stock overview -->
+                <!-- ============================================ -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
+                    
+                    <!-- Total Products Card -->
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100">
+                        <p class="text-sm text-gray-500">Total Products</p>
+                        <p class="text-2xl font-bold text-gray-900" id="total-products">0</p>
+                    </div>
+                    
+                    <!-- In Stock Card -->
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100">
+                        <p class="text-sm text-gray-500">In Stock</p>
+                        <p class="text-2xl font-bold text-green-600" id="in-stock-count">0</p>
+                    </div>
+                    
+                    <!-- Out of Stock Card -->
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100">
+                        <p class="text-sm text-gray-500">Out of Stock</p>
+                        <p class="text-2xl font-bold text-red-600" id="out-stock-count">0</p>
+                    </div>
+                    
+                </div>
+                
+                <!-- ============================================ -->
+                <!-- INVENTORY TABLE -->
+                <!-- Lists all products with stock status -->
+                <!-- Out of stock items highlighted with red tint -->
+                <!-- ============================================ -->
+                <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden">
+                    
+                    <!-- Responsive Table Wrapper (horizontal scroll on small screens) -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            
+                            <!-- Table Column Headers -->
+                            <thead>
+                                <tr class="text-left text-xs text-gray-500 uppercase bg-gray-50">
+                                    <th class="px-6 py-3">Product</th>      <!-- Product name -->
+                                    <th class="px-6 py-3">Category</th>     <!-- Product category -->
+                                    <th class="px-6 py-3">SKU</th>          <!-- Stock Keeping Unit (ID) -->
+                                    <th class="px-6 py-3">Status</th>       <!-- In Stock / Out of Stock -->
+                                    <th class="px-6 py-3">Price</th>        <!-- Product price -->
+                                    <th class="px-6 py-3">Restock</th>      <!-- Restock needed indicator -->
+                                </tr>
+                            </thead>
+                            
+                            <!-- Table Body - Filled by JavaScript -->
+                            <tbody id="inventory-table-body" class="divide-y divide-gray-100">
+                                <!-- Loading state -->
+                                <tr>
+                                    <td colspan="6" class="px-6 py-8 text-center text-gray-400">
+                                        Loading inventory...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+                
+            </main>
+            
+        </div>
+        
+    </div>
+    
+    <!-- ============================================ -->
+    <!-- SCRIPTS -->
+    <!-- ============================================ -->
+    
+    <!-- API Handler - fetches products.json data -->
+    <script src="../assets/js/api.js"></script>
+    
+    <!-- Page-specific JavaScript -->
+    <script>
+        
+        // ============================================
+        // SIDEBAR TOGGLE FUNCTIONS (Global Scope)
+        // These are called from onclick attributes in HTML
+        // ============================================
+        var sidebarOpen = false;
+        
+        /**
+         * Toggle the admin sidebar open/closed on mobile devices
+         * Slides sidebar in from left edge with dark overlay
+         */
+        function toggleSidebar() {
+            var sidebar = document.getElementById('admin-sidebar');
+            var overlay = document.getElementById('sidebar-overlay');
+            
+            sidebarOpen = !sidebarOpen;
+            
+            if (sidebarOpen) {
+                // OPEN SIDEBAR
+                sidebar.classList.remove('-translate-x-full');   // Remove hidden position
+                sidebar.classList.add('translate-x-0');          // Slide into view
+                if (overlay) overlay.classList.remove('hidden'); // Show dark backdrop
+                document.body.style.overflow = 'hidden';         // Prevent page scroll
+            } else {
+                // CLOSE SIDEBAR
+                sidebar.classList.add('-translate-x-full');      // Hide off-screen
+                sidebar.classList.remove('translate-x-0');       // Remove visible position
+                if (overlay) overlay.classList.add('hidden');    // Hide backdrop
+                document.body.style.overflow = '';               // Restore scroll
+            }
+        }
+        
+        /**
+         * Close the sidebar (called by overlay click, Escape key, resize)
+         */
+        function closeSidebar() {
+            var sidebar = document.getElementById('admin-sidebar');
+            var overlay = document.getElementById('sidebar-overlay');
+            
+            sidebarOpen = false;
+            sidebar.classList.add('-translate-x-full');
+            sidebar.classList.remove('translate-x-0');
+            if (overlay) overlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+        
+        // ============================================
+        // PAGE INITIALIZATION
+        // ============================================
+        (function() {
+            'use strict';
+            
+            // Wait for DOM to be fully loaded
+            document.addEventListener('DOMContentLoaded', function() {
+                checkAuth();        // Verify admin login session
+                loadInventory();    // Fetch and display inventory data
+                
+                // Logout button - clears session and redirects
+                document.getElementById('logout-btn').addEventListener('click', function() {
+                    localStorage.removeItem('novacore_admin_session');
+                    window.location.href = 'login.html';
+                });
+                
+                // Keyboard shortcut: Escape key closes sidebar
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && sidebarOpen) {
+                        closeSidebar();
+                    }
+                });
+                
+                // Auto-close sidebar when window resizes to desktop width
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth >= 1024 && sidebarOpen) {
+                        closeSidebar();
+                    }
+                });
+            });
+            
+            /**
+             * Verify admin authentication
+             * Checks localStorage for valid admin session
+             * Session expires after 24 hours
+             * Redirects to login if invalid or expired
+             */
+            function checkAuth() {
+                var session = localStorage.getItem('novacore_admin_session');
+                
+                // No session found
+                if (!session) {
+                    window.location.href = 'login.html';
+                    return;
+                }
+                
+                // Check session expiry (24 hours)
+                try {
+                    var data = JSON.parse(session);
+                    var loggedInAt = new Date(data.loggedInAt);
+                    var now = new Date();
+                    var hoursDiff = (now - loggedInAt) / (1000 * 60 * 60);
+                    
+                    if (hoursDiff >= 24) {
+                        // Session expired
+                        localStorage.removeItem('novacore_admin_session');
+                        window.location.href = 'login.html';
+                    }
+                } catch(e) {
+                    // Invalid session data
+                    localStorage.removeItem('novacore_admin_session');
+                    window.location.href = 'login.html';
+                }
+            }
+            
+            /**
+             * Load inventory data from the products API
+             * Fetches all products and displays stock status
+             */
+            function loadInventory() {
+                var tbody = document.getElementById('inventory-table-body');
+                
+                // Check if API is available
+                if (!window.NovaCoreAPI) {
+                    tbody.innerHTML = '<tr><td colspan="6" class="px-6 py-8 text-center text-red-500">Failed to load inventory. API not available.</td></tr>';
+                    return;
+                }
+                
+                // Fetch all products
+                window.NovaCoreAPI.getProducts()
+                    .then(function(products) {
+                        renderInventory(products);
+                    })
+                    .catch(function() {
+                        tbody.innerHTML = '<tr><td colspan="6" class="px-6 py-8 text-center text-red-500">Failed to load inventory. Please try again.</td></tr>';
+                    });
+            }
+            
+            /**
+             * Render inventory table with all products
+             * Updates stats cards and builds table rows
+             * @param {Array} products - Array of product objects from API
+             */
+            function renderInventory(products) {
+                
+                // ============================================
+                // UPDATE STATS CARDS
+                // ============================================
+                var total = products.length;
+                var inStock = products.filter(function(p) { return p.inStock; }).length;
+                var outStock = total - inStock;
+                
+                // Update stat card values
+                document.getElementById('total-products').textContent = total;
+                document.getElementById('in-stock-count').textContent = inStock;
+                document.getElementById('out-stock-count').textContent = outStock;
+                
+                // Update summary text in top bar
+                document.getElementById('inventory-summary').textContent = 
+                    inStock + ' in stock, ' + outStock + ' out of stock';
+                
+                // ============================================
+                // BUILD TABLE ROWS
+                // ============================================
+                var tbody = document.getElementById('inventory-table-body');
+                var html = '';
+                
+                // Create a row for each product
+                products.forEach(function(p) {
+                    
+                    // Stock status badge
+                    var statusHTML = p.inStock
+                        ? '<span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">In Stock</span>'
+                        : '<span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full">Out of Stock</span>';
+                    
+                    // SKU: uppercase product ID (e.g., AEROSIP-SMART-BOTTLE)
+                    var sku = p.id.toUpperCase();
+                    
+                    // Restock indicator
+                    var restock = p.inStock 
+                        ? '<span class="text-xs text-green-600">—</span>'           // No restock needed
+                        : '<span class="text-xs text-orange-600 font-medium">Needed</span>'; // Restock required
+                    
+                    // Build row - out of stock items get subtle red background
+                    html += '<tr class="hover:bg-gray-50 ' + (p.inStock ? '' : 'bg-red-50/30') + '">';
+                    
+                    // Product Name
+                    html += '<td class="px-6 py-3 text-sm font-medium text-gray-900">' 
+                         + p.name + '</td>';
+                    
+                    // Category
+                    html += '<td class="px-6 py-3 text-sm text-gray-500">' 
+                         + p.category + '</td>';
+                    
+                    // SKU (monospace font for code-like appearance)
+                    html += '<td class="px-6 py-3 text-sm font-mono text-gray-500">' 
+                         + sku + '</td>';
+                    
+                    // Stock Status Badge
+                    html += '<td class="px-6 py-3">' + statusHTML + '</td>';
+                    
+                    // Price
+                    html += '<td class="px-6 py-3 text-sm text-gray-900 font-medium">$' 
+                         + p.price + '</td>';
+                    
+                    // Restock Indicator
+                    html += '<td class="px-6 py-3">' + restock + '</td>';
+                    
+                    html += '</tr>';
+                });
+                
+                // Insert all rows into table
+                tbody.innerHTML = html;
+            }
+            
+        })();
+    </script>
+    
+</body>
+</html>

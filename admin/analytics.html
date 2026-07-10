@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NovaCore Admin - Analytics Dashboard">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Analytics - NovaCore Admin</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'novacore': {
+                            50: '#f0f7ff', 100: '#e0effe', 200: '#b9dffd', 300: '#7cc5fc',
+                            400: '#36a9f8', 500: '#0c8ee9', 600: '#0070c7', 700: '#0159a1',
+                            800: '#064b85', 900: '#0b3f6e', 950: '#072849',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        'display': ['Space Grotesk', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    
+</head>
+<body class="bg-gray-100 font-sans antialiased">
+    
+    <!-- ============================================ -->
+    <!-- ADMIN LAYOUT CONTAINER -->
+    <!-- ============================================ -->
+    <div class="flex min-h-screen">
+        
+        <!-- ============================================ -->
+        <!-- SIDEBAR OVERLAY (Mobile only - dark backdrop) -->
+        <!-- Appears behind sidebar when open on mobile -->
+        <!-- Click to close the sidebar -->
+        <!-- ============================================ -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden" onclick="closeSidebar()"></div>
+        
+        <!-- ============================================ -->
+        <!-- SIDEBAR NAVIGATION -->
+        <!-- Fixed on desktop (always visible) -->
+        <!-- Slides from left on mobile when toggle clicked -->
+        <!-- ============================================ -->
+        <aside id="admin-sidebar" class="fixed lg:sticky lg:flex lg:flex-col w-64 bg-novacore-900 text-white inset-y-0 left-0 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+            
+            <!-- Sidebar Logo Header -->
+            <div class="flex items-center h-16 px-6 border-b border-novacore-800">
+                <a href="dashboard.html" class="text-xl font-display font-bold tracking-wider">NOVACORE</a>
+                <span class="text-xs bg-novacore-600 px-2 py-0.5 rounded ml-2">ADMIN</span>
+            </div>
+            
+            <!-- Sidebar Navigation Links -->
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                
+                <!-- Dashboard -->
+                <a href="dashboard.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    Dashboard
+                </a>
+                
+                <!-- Products -->
+                <a href="products.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                    Products
+                </a>
+                
+                <!-- Orders -->
+                <a href="orders.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+                    Orders
+                </a>
+                
+                <!-- Customers -->
+                <a href="customers.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    Customers
+                </a>
+                
+                <!-- Inventory -->
+                <a href="inventory.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
+                    Inventory
+                </a>
+                
+                <!-- Analytics (Active/Current Page) -->
+                <a href="analytics.html" class="flex items-center px-3 py-2.5 rounded-lg bg-novacore-700 text-white font-medium text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    Analytics
+                </a>
+                
+                <!-- Settings -->
+                <a href="settings.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    Settings
+                </a>
+                
+            </nav>
+            
+            <!-- Logout Button -->
+            <div class="px-4 py-4 border-t border-novacore-800">
+                <button id="logout-btn" class="flex items-center w-full px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                    Logout
+                </button>
+            </div>
+            
+        </aside>
+        
+        <!-- ============================================ -->
+        <!-- MAIN CONTENT AREA -->
+        <!-- ============================================ -->
+        <div class="flex-1 lg:ml-64">
+            
+            <!-- Top Bar Header -->
+            <header class="bg-white border-b border-gray-200 sticky top-0 z-30">
+                <div class="flex items-center justify-between h-16 px-6">
+                    
+                    <!-- Left: Toggle Button + Page Title -->
+                    <div class="flex items-center gap-3">
+                        
+                        <!-- ============================================ -->
+                        <!-- MOBILE SIDEBAR TOGGLE BUTTON -->
+                        <!-- Visible only on mobile (hidden on lg+) -->
+                        <!-- ============================================ -->
+                        <button id="sidebar-toggle" class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Toggle sidebar" onclick="toggleSidebar()">
+                            <!-- Hamburger icon (3 horizontal lines) -->
+                            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        </button>
+                        
+                        <!-- Page Title -->
+                        <h1 class="text-lg font-bold text-gray-900">Analytics</h1>
+                    </div>
+                    
+                    <!-- Right: Admin Avatar -->
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-novacore-600 rounded-full flex items-center justify-center text-white text-sm font-bold">A</div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Analytics Content -->
+            <main class="p-6">
+                
+                <!-- ============================================ -->
+                <!-- KEY METRICS CARDS (4 cards) -->
+                <!-- Shows revenue, orders, average order, items -->
+                <!-- ============================================ -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                    
+                    <!-- Total Revenue -->
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100">
+                        <p class="text-sm text-gray-500">Total Revenue</p>
+                        <p class="text-2xl font-bold text-gray-900" id="anal-revenue">$0.00</p>
+                    </div>
+                    
+                    <!-- Total Orders -->
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100">
+                        <p class="text-sm text-gray-500">Total Orders</p>
+                        <p class="text-2xl font-bold text-gray-900" id="anal-orders">0</p>
+                    </div>
+                    
+                    <!-- Average Order Value (AOV) -->
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100">
+                        <p class="text-sm text-gray-500">Avg Order Value</p>
+                        <p class="text-2xl font-bold text-gray-900" id="anal-aov">$0.00</p>
+                    </div>
+                    
+                    <!-- Total Items Sold -->
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100">
+                        <p class="text-sm text-gray-500">Total Items Sold</p>
+                        <p class="text-2xl font-bold text-gray-900" id="anal-items">0</p>
+                    </div>
+                    
+                </div>
+                
+                <!-- ============================================ -->
+                <!-- MONTHLY REVENUE CHART -->
+                <!-- Horizontal bar chart showing revenue by month -->
+                <!-- ============================================ -->
+                <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden mb-6">
+                    
+                    <!-- Section Header -->
+                    <div class="px-6 py-4 border-b border-gray-100">
+                        <h2 class="font-bold text-gray-900">Monthly Revenue</h2>
+                    </div>
+                    
+                    <!-- Chart Content -->
+                    <div class="p-6">
+                        <div id="monthly-breakdown" class="space-y-3">
+                            <!-- Empty state - shown when no data exists -->
+                            <p class="text-gray-400 text-sm">No sales data yet. Revenue will appear here after orders are placed.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- ============================================ -->
+                <!-- SALES BY CATEGORY -->
+                <!-- Shows which product categories generate revenue -->
+                <!-- ============================================ -->
+                <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden">
+                    
+                    <!-- Section Header -->
+                    <div class="px-6 py-4 border-b border-gray-100">
+                        <h2 class="font-bold text-gray-900">Sales by Category</h2>
+                    </div>
+                    
+                    <!-- Category Breakdown Content -->
+                    <div class="p-6">
+                        <div id="category-bars" class="space-y-4">
+                            <!-- Empty state -->
+                            <p class="text-gray-400 text-sm">No category sales data available. Sales will appear here after orders are placed.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </main>
+            
+        </div>
+        
+    </div>
+    
+    <!-- ============================================ -->
+    <!-- SCRIPTS -->
+    <!-- ============================================ -->
+    <script>
+        
+        // ============================================
+        // SIDEBAR TOGGLE FUNCTIONS
+        // ============================================
+        var sidebarOpen = false;
+        
+        /**
+         * Toggle sidebar on mobile devices
+         * Slides in from left with dark overlay backdrop
+         */
+        function toggleSidebar() {
+            var sidebar = document.getElementById('admin-sidebar');
+            var overlay = document.getElementById('sidebar-overlay');
+            
+            sidebarOpen = !sidebarOpen;
+            
+            if (sidebarOpen) {
+                sidebar.classList.remove('-translate-x-full');
+                sidebar.classList.add('translate-x-0');
+                if (overlay) overlay.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                sidebar.classList.remove('translate-x-0');
+                if (overlay) overlay.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+        
+        /**
+         * Close sidebar (overlay click, Escape key, window resize)
+         */
+        function closeSidebar() {
+            var sidebar = document.getElementById('admin-sidebar');
+            var overlay = document.getElementById('sidebar-overlay');
+            
+            sidebarOpen = false;
+            sidebar.classList.add('-translate-x-full');
+            sidebar.classList.remove('translate-x-0');
+            if (overlay) overlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+        
+        // ============================================
+        // PAGE INITIALIZATION
+        // ============================================
+        (function() {
+            'use strict';
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                checkAuth();        // Verify admin session
+                loadAnalytics();    // Calculate and display analytics
+                
+                // Logout handler
+                document.getElementById('logout-btn').addEventListener('click', function() {
+                    localStorage.removeItem('novacore_admin_session');
+                    window.location.href = 'login.html';
+                });
+                
+                // Escape key closes sidebar
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && sidebarOpen) closeSidebar();
+                });
+                
+                // Close sidebar on desktop resize
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth >= 1024 && sidebarOpen) closeSidebar();
+                });
+            });
+            
+            /**
+             * Verify admin authentication
+             * Redirects to login if session missing or expired (24h)
+             */
+            function checkAuth() {
+                var session = localStorage.getItem('novacore_admin_session');
+                if (!session) { window.location.href = 'login.html'; return; }
+                try {
+                    var data = JSON.parse(session);
+                    var hoursDiff = (new Date() - new Date(data.loggedInAt)) / (1000 * 60 * 60);
+                    if (hoursDiff >= 24) { localStorage.removeItem('novacore_admin_session'); window.location.href = 'login.html'; }
+                } catch(e) { localStorage.removeItem('novacore_admin_session'); window.location.href = 'login.html'; }
+            }
+            
+            /**
+             * Calculate and display all analytics
+             * Reads order data from localStorage
+             */
+            function loadAnalytics() {
+                // Get orders from localStorage (saved by checkout.js)
+                var orders = JSON.parse(localStorage.getItem('novacore_orders') || '[]');
+                
+                // ============================================
+                // CALCULATE TOTALS
+                // ============================================
+                var totalRevenue = 0;
+                var totalItems = 0;
+                var monthlySales = {};   // { "2026-01": 123.45, "2026-02": 678.90 }
+                
+                // Loop through all orders
+                orders.forEach(function(order) {
+                    // Add order total to revenue
+                    totalRevenue += parseFloat(order.total || 0);
+                    
+                    // Count individual items
+                    if (order.items) {
+                        order.items.forEach(function(item) {
+                            totalItems += item.quantity || 1;
+                        });
+                    }
+                    
+                    // Group by month for the chart
+                    if (order.date) {
+                        var monthKey = order.date.substring(0, 7); // Extract "YYYY-MM" from ISO date
+                        if (!monthlySales[monthKey]) monthlySales[monthKey] = 0;
+                        monthlySales[monthKey] += parseFloat(order.total || 0);
+                    }
+                });
+                
+                // Calculate Average Order Value (AOV)
+                var avgOrder = orders.length > 0 
+                    ? (totalRevenue / orders.length).toFixed(2) 
+                    : '0.00';
+                
+                // ============================================
+                // UPDATE METRIC CARDS
+                // ============================================
+                document.getElementById('anal-revenue').textContent = '$' + totalRevenue.toFixed(2);
+                document.getElementById('anal-orders').textContent = orders.length;
+                document.getElementById('anal-aov').textContent = '$' + avgOrder;
+                document.getElementById('anal-items').textContent = totalItems;
+                
+                // ============================================
+                // RENDER MONTHLY REVENUE CHART
+                // Horizontal bars proportional to highest month
+                // ============================================
+                var monthlyDiv = document.getElementById('monthly-breakdown');
+                var months = Object.keys(monthlySales).sort(); // Sort chronologically
+                
+                if (months.length === 0) {
+                    // No data - show empty state
+                    monthlyDiv.innerHTML = '<p class="text-gray-400 text-sm">No monthly data yet. Revenue will appear after orders are placed.</p>';
+                } else {
+                    // Find highest revenue month for scaling bars
+                    var maxRevenue = Math.max.apply(null, months.map(function(m) { 
+                        return monthlySales[m]; 
+                    }));
+                    
+                    var html = '';
+                    
+                    // Build a bar for each month
+                    months.forEach(function(month) {
+                        var revenue = monthlySales[month];
+                        
+                        // Calculate bar width as percentage of max
+                        var percent = maxRevenue > 0 ? (revenue / maxRevenue * 100) : 0;
+                        
+                        // Format month label (e.g., "January 2026")
+                        var monthLabel = new Date(month + '-01').toLocaleDateString('en-US', { 
+                            month: 'long', 
+                            year: 'numeric' 
+                        });
+                        
+                        html += '<div class="flex items-center gap-3">';
+                        
+                        // Month label (fixed width for alignment)
+                        html += '<span class="text-sm text-gray-600 w-36 flex-shrink-0">' + monthLabel + '</span>';
+                        
+                        // Bar container
+                        html += '<div class="flex-1 bg-gray-100 rounded-full h-7 overflow-hidden">';
+                        
+                        // Filled bar (blue, proportional width)
+                        html += '<div class="bg-novacore-600 h-full rounded-full flex items-center justify-end pr-2.5 transition-all duration-500" style="width:' + percent + '%">';
+                        
+                        // Show dollar amount inside bar if wide enough (>25%)
+                        if (percent > 25) {
+                            html += '<span class="text-xs text-white font-medium">$' + revenue.toFixed(2) + '</span>';
+                        }
+                        
+                        html += '</div></div>';
+                        
+                        // Show dollar amount outside bar if too narrow
+                        if (percent <= 25) {
+                            html += '<span class="text-xs text-gray-500 w-20 flex-shrink-0">$' + revenue.toFixed(2) + '</span>';
+                        }
+                        
+                        html += '</div>';
+                    });
+                    
+                    monthlyDiv.innerHTML = html;
+                }
+                
+                // ============================================
+                // CATEGORY BREAKDOWN (placeholder)
+                // Shows message since orders don't store category
+                // ============================================
+                var catDiv = document.getElementById('category-bars');
+                catDiv.innerHTML = '<p class="text-gray-400 text-sm">Category sales breakdown will be available in a future update. Currently tracking: ' + orders.length + ' orders totaling $' + totalRevenue.toFixed(2) + '.</p>';
+            }
+            
+        })();
+    </script>
+    
+</body>
+</html>

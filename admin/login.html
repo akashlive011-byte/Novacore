@@ -1,1 +1,226 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NovaCore Admin Login">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin Login - NovaCore</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'novacore': {
+                            50: '#f0f7ff', 100: '#e0effe', 200: '#b9dffd', 300: '#7cc5fc',
+                            400: '#36a9f8', 500: '#0c8ee9', 600: '#0070c7', 700: '#0159a1',
+                            800: '#064b85', 900: '#0b3f6e', 950: '#072849',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        'display': ['Space Grotesk', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    
+</head>
+<body class="bg-gray-100 font-sans antialiased min-h-screen flex items-center justify-center">
+    
+    <!-- ============================================ -->
+    <!-- LOGIN CONTAINER -->
+    <!-- ============================================ -->
+    <div class="w-full max-w-md mx-4">
+        
+        <!-- Logo -->
+        <div class="text-center mb-8">
+            <a href="../index.html" class="inline-flex items-center justify-center">
+                <span class="text-2xl font-display font-bold text-novacore-600 tracking-wider">NOVACORE</span>
+            </a>
+            <p class="text-gray-500 text-sm mt-2">Admin Panel</p>
+        </div>
+        
+        <!-- Login Card -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+            
+            <h1 class="text-xl font-bold text-gray-900 mb-6 text-center">Sign In</h1>
+            
+            <!-- Login Form -->
+            <form id="admin-login-form" class="space-y-5">
+                
+                <!-- Email Field -->
+                <div>
+                    <label for="admin-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input 
+                        type="email" 
+                        id="admin-email" 
+                        class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-novacore-500 focus:border-transparent" 
+                        placeholder="admin@novacore.com"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+                
+                <!-- Password Field -->
+                <div>
+                    <label for="admin-password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <input 
+                        type="password" 
+                        id="admin-password" 
+                        class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-novacore-500 focus:border-transparent" 
+                        placeholder="••••••••"
+                        autocomplete="current-password"
+                        required
+                    >
+                </div>
+                
+                <!-- Error Message (hidden by default) -->
+                <div id="login-error" class="hidden bg-red-50 border border-red-200 rounded-xl p-3 text-sm text-red-600 text-center"></div>
+                
+                <!-- Submit Button -->
+                <button 
+                    type="submit" 
+                    id="login-submit-btn"
+                    class="w-full bg-novacore-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-novacore-700 transition-colors"
+                >
+                    Sign In
+                </button>
+                
+            </form>
+            
+            <!-- Back to Site Link -->
+            <div class="text-center mt-6">
+                <a href="../index.html" class="text-sm text-gray-500 hover:text-novacore-600 transition-colors">
+                    ← Back to NovaCore
+                </a>
+            </div>
+            
+        </div>
+        
+        <!-- Footer -->
+        <p class="text-center text-xs text-gray-400 mt-6">&copy; 2026 NovaCore. All rights reserved.</p>
+        
+    </div>
+    
+    <!-- ============================================ -->
+    <!-- SCRIPTS -->
+    <!-- ============================================ -->
+    <script>
+        (function() {
+            'use strict';
+            
+            // Demo credentials (in production, this would be server-side)
+            var DEMO_EMAIL = 'admin@novacore.com';
+            var DEMO_PASSWORD = 'admin123';
+            
+            // Get form elements
+            var form = document.getElementById('admin-login-form');
+            var emailInput = document.getElementById('admin-email');
+            var passwordInput = document.getElementById('admin-password');
+            var errorDiv = document.getElementById('login-error');
+            var submitBtn = document.getElementById('login-submit-btn');
+            
+            // Handle form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Hide previous error
+                errorDiv.classList.add('hidden');
+                
+                // Get values
+                var email = emailInput.value.trim();
+                var password = passwordInput.value.trim();
+                
+                // Validate empty fields
+                if (!email || !password) {
+                    showError('Please enter both email and password.');
+                    return;
+                }
+                
+                // Show loading state
+                submitBtn.textContent = 'Signing in...';
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = '0.7';
+                
+                // Simulate authentication (300ms delay for realism)
+                setTimeout(function() {
+                    
+                    // Check credentials
+                    if (email === DEMO_EMAIL && password === DEMO_PASSWORD) {
+                        
+                        // Store session in localStorage
+                        var session = {
+                            email: email,
+                            role: 'admin',
+                            loggedInAt: new Date().toISOString()
+                        };
+                        localStorage.setItem('novacore_admin_session', JSON.stringify(session));
+                        
+                        // Redirect to dashboard
+                        window.location.href = 'dashboard.html';
+                        
+                    } else {
+                        // Show error
+                        showError('Invalid email or password. Please try again.');
+                        
+                        // Reset button
+                        submitBtn.textContent = 'Sign In';
+                        submitBtn.disabled = false;
+                        submitBtn.style.opacity = '1';
+                        
+                        // Clear password field
+                        passwordInput.value = '';
+                        passwordInput.focus();
+                    }
+                    
+                }, 300);
+            });
+            
+            // Show error message
+            function showError(message) {
+                errorDiv.textContent = message;
+                errorDiv.classList.remove('hidden');
+            }
+            
+            // Check if already logged in
+            (function checkSession() {
+                var session = localStorage.getItem('novacore_admin_session');
+                if (session) {
+                    try {
+                        var data = JSON.parse(session);
+                        // Session valid for 24 hours
+                        var loggedInAt = new Date(data.loggedInAt);
+                        var now = new Date();
+                        var hoursDiff = (now - loggedInAt) / (1000 * 60 * 60);
+                        
+                        if (hoursDiff < 24) {
+                            // Valid session - redirect to dashboard
+                            window.location.href = 'dashboard.html';
+                        } else {
+                            // Expired session - clear it
+                            localStorage.removeItem('novacore_admin_session');
+                        }
+                    } catch (e) {
+                        localStorage.removeItem('novacore_admin_session');
+                    }
+                }
+            })();
+            
+        })();
+    </script>
+    
+</body>
+</html>

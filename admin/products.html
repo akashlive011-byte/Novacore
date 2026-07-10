@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NovaCore Admin - Products Management">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Products - NovaCore Admin</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'novacore': {
+                            50: '#f0f7ff', 100: '#e0effe', 200: '#b9dffd', 300: '#7cc5fc',
+                            400: '#36a9f8', 500: '#0c8ee9', 600: '#0070c7', 700: '#0159a1',
+                            800: '#064b85', 900: '#0b3f6e', 950: '#072849',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        'display': ['Space Grotesk', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    
+</head>
+<body class="bg-gray-100 font-sans antialiased">
+    
+    <!-- ============================================ -->
+    <!-- ADMIN LAYOUT CONTAINER -->
+    <!-- ============================================ -->
+    <div class="flex min-h-screen">
+        
+        <!-- ============================================ -->
+        <!-- SIDEBAR OVERLAY (Mobile only - dark backdrop) -->
+        <!-- Closes sidebar when clicked -->
+        <!-- ============================================ -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden" onclick="closeSidebar()"></div>
+        
+        <!-- ============================================ -->
+        <!-- SIDEBAR NAVIGATION -->
+        <!-- Fixed on desktop, slides from left on mobile -->
+        <!-- ============================================ -->
+        <aside id="admin-sidebar" class="fixed lg:sticky lg:flex lg:flex-col w-64 bg-novacore-900 text-white inset-y-0 left-0 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+            
+            <!-- Sidebar Logo -->
+            <div class="flex items-center h-16 px-6 border-b border-novacore-800">
+                <a href="dashboard.html" class="text-xl font-display font-bold tracking-wider">NOVACORE</a>
+                <span class="text-xs bg-novacore-600 px-2 py-0.5 rounded ml-2">ADMIN</span>
+            </div>
+            
+            <!-- Sidebar Navigation Links -->
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                
+                <!-- Dashboard -->
+                <a href="dashboard.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    Dashboard
+                </a>
+                
+                <!-- Products (Active/Current Page) -->
+                <a href="products.html" class="flex items-center px-3 py-2.5 rounded-lg bg-novacore-700 text-white font-medium text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                    Products
+                </a>
+                
+                <!-- Orders -->
+                <a href="orders.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+                    Orders
+                </a>
+                
+                <!-- Customers -->
+                <a href="customers.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    Customers
+                </a>
+                
+                <!-- Inventory -->
+                <a href="inventory.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
+                    Inventory
+                </a>
+                
+                <!-- Analytics -->
+                <a href="analytics.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    Analytics
+                </a>
+                
+                <!-- Settings -->
+                <a href="settings.html" class="flex items-center px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    Settings
+                </a>
+                
+            </nav>
+            
+            <!-- Logout Button -->
+            <div class="px-4 py-4 border-t border-novacore-800">
+                <button id="logout-btn" class="flex items-center w-full px-3 py-2.5 rounded-lg text-novacore-200 hover:bg-novacore-800 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                    Logout
+                </button>
+            </div>
+            
+        </aside>
+        
+        <!-- ============================================ -->
+        <!-- MAIN CONTENT AREA -->
+        <!-- ============================================ -->
+        <div class="flex-1 lg:ml-64">
+            
+            <!-- Top Bar Header -->
+            <header class="bg-white border-b border-gray-200 sticky top-0 z-30">
+                <div class="flex items-center justify-between h-16 px-6">
+                    
+                    <!-- Left: Toggle Button + Page Title -->
+                    <div class="flex items-center gap-3">
+                        
+                        <!-- ============================================ -->
+                        <!-- MOBILE SIDEBAR TOGGLE BUTTON -->
+                        <!-- Only visible on mobile (lg:hidden) -->
+                        <!-- ============================================ -->
+                        <button id="sidebar-toggle" class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Toggle sidebar" onclick="toggleSidebar()">
+                            <!-- Hamburger Icon -->
+                            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        </button>
+                        
+                        <!-- Page Title -->
+                        <h1 class="text-lg font-bold text-gray-900">Products</h1>
+                    </div>
+                    
+                    <!-- Right: Product Count + Admin Avatar -->
+                    <div class="flex items-center space-x-3">
+                        <span class="text-sm text-gray-500">57 products</span>
+                        <div class="w-8 h-8 bg-novacore-600 rounded-full flex items-center justify-center text-white text-sm font-bold">A</div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Products Content -->
+            <main class="p-6">
+                
+                <!-- ============================================ -->
+                <!-- SEARCH & FILTER BAR -->
+                <!-- ============================================ -->
+                <div class="bg-white rounded-2xl border border-gray-100 p-4 mb-6 flex flex-col sm:flex-row gap-4">
+                    
+                    <!-- Text Search Input -->
+                    <input 
+                        type="text" 
+                        id="product-search" 
+                        placeholder="Search products by name or category..." 
+                        class="flex-1 px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-novacore-500 text-sm"
+                    >
+                    
+                    <!-- Category Filter Dropdown -->
+                    <select id="category-filter" class="px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-novacore-500 text-sm">
+                        <option value="all">All Categories</option>
+                        <option value="Smart Hydration">Smart Hydration</option>
+                        <option value="Smart Security">Smart Security</option>
+                        <option value="Smart Wearables">Smart Wearables</option>
+                        <option value="Personal Climate">Personal Climate</option>
+                        <option value="Travel Tech">Travel Tech</option>
+                    </select>
+                    
+                    <!-- Stock Status Filter Dropdown -->
+                    <select id="stock-filter" class="px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-novacore-500 text-sm">
+                        <option value="all">All Stock</option>
+                        <option value="in">In Stock</option>
+                        <option value="out">Out of Stock</option>
+                    </select>
+                    
+                </div>
+                
+                <!-- ============================================ -->
+                <!-- PRODUCTS TABLE -->
+                <!-- ============================================ -->
+                <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            
+                            <!-- Table Headers -->
+                            <thead>
+                                <tr class="text-left text-xs text-gray-500 uppercase bg-gray-50">
+                                    <th class="px-6 py-3">Product</th>      <!-- Product name -->
+                                    <th class="px-6 py-3">Category</th>     <!-- Product category -->
+                                    <th class="px-6 py-3">Price</th>        <!-- Product price -->
+                                    <th class="px-6 py-3">Stock</th>        <!-- In stock / Out of stock -->
+                                    <th class="px-6 py-3">Rating</th>       <!-- Star rating -->
+                                    <th class="px-6 py-3">Badge</th>        <!-- Product badge (Best Seller, New, etc.) -->
+                                </tr>
+                            </thead>
+                            
+                            <!-- Table Body - Filled by JavaScript -->
+                            <tbody id="products-table-body" class="divide-y divide-gray-100">
+                                <!-- Loading state (shown while fetching) -->
+                                <tr>
+                                    <td colspan="6" class="px-6 py-8 text-center text-gray-400">
+                                        Loading products...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+            </main>
+            
+        </div>
+        
+    </div>
+    
+    <!-- ============================================ -->
+    <!-- SCRIPTS -->
+    <!-- ============================================ -->
+    
+    <!-- API Handler (fetches products.json) -->
+    <script src="../assets/js/api.js"></script>
+    
+    <!-- Page-specific JavaScript -->
+    <script>
+        
+        // ============================================
+        // SIDEBAR TOGGLE - Global functions
+        // ============================================
+        var sidebarOpen = false; // Track whether sidebar is open
+        
+        /**
+         * Toggle sidebar open/closed on mobile devices
+         * Slides sidebar in from left with overlay backdrop
+         */
+        function toggleSidebar() {
+            var sidebar = document.getElementById('admin-sidebar');
+            var overlay = document.getElementById('sidebar-overlay');
+            
+            sidebarOpen = !sidebarOpen;
+            
+            if (sidebarOpen) {
+                // Open: slide sidebar into view
+                sidebar.classList.remove('-translate-x-full');
+                sidebar.classList.add('translate-x-0');
+                if (overlay) overlay.classList.remove('hidden');  // Show dark backdrop
+                document.body.style.overflow = 'hidden';          // Prevent page scroll
+            } else {
+                // Close: slide sidebar out
+                sidebar.classList.add('-translate-x-full');
+                sidebar.classList.remove('translate-x-0');
+                if (overlay) overlay.classList.add('hidden');     // Hide backdrop
+                document.body.style.overflow = '';                // Restore scroll
+            }
+        }
+        
+        /**
+         * Close sidebar (called by overlay click or Escape key)
+         */
+        function closeSidebar() {
+            var sidebar = document.getElementById('admin-sidebar');
+            var overlay = document.getElementById('sidebar-overlay');
+            
+            sidebarOpen = false;
+            sidebar.classList.add('-translate-x-full');
+            sidebar.classList.remove('translate-x-0');
+            if (overlay) overlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+        
+        // ============================================
+        // PAGE INITIALIZATION
+        // ============================================
+        (function() {
+            'use strict';
+            
+            var allProducts = []; // Store all products for filtering
+            
+            // Run on page load
+            document.addEventListener('DOMContentLoaded', function() {
+                checkAuth();       // Verify admin login
+                loadProducts();    // Fetch products from API
+                
+                // Logout button
+                document.getElementById('logout-btn').addEventListener('click', function() {
+                    localStorage.removeItem('novacore_admin_session');
+                    window.location.href = 'login.html';
+                });
+                
+                // Filter event listeners
+                document.getElementById('product-search').addEventListener('input', filterProducts);
+                document.getElementById('category-filter').addEventListener('change', filterProducts);
+                document.getElementById('stock-filter').addEventListener('change', filterProducts);
+                
+                // Close sidebar on Escape key
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && sidebarOpen) {
+                        closeSidebar();
+                    }
+                });
+                
+                // Close sidebar on window resize to desktop
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth >= 1024 && sidebarOpen) {
+                        closeSidebar();
+                    }
+                });
+            });
+            
+            /**
+             * Verify admin authentication
+             * Redirects to login if no valid session
+             */
+            function checkAuth() {
+                var session = localStorage.getItem('novacore_admin_session');
+                
+                if (!session) {
+                    window.location.href = 'login.html';
+                    return;
+                }
+                
+                try {
+                    var data = JSON.parse(session);
+                    var hoursDiff = (new Date() - new Date(data.loggedInAt)) / (1000 * 60 * 60);
+                    if (hoursDiff >= 24) {
+                        localStorage.removeItem('novacore_admin_session');
+                        window.location.href = 'login.html';
+                    }
+                } catch(e) {
+                    localStorage.removeItem('novacore_admin_session');
+                    window.location.href = 'login.html';
+                }
+            }
+            
+            /**
+             * Fetch all products from the API
+             * Uses NovaCoreAPI.getProducts() from api.js
+             */
+            function loadProducts() {
+                var tbody = document.getElementById('products-table-body');
+                
+                // Check if API is available
+                if (!window.NovaCoreAPI) {
+                    tbody.innerHTML = '<tr><td colspan="6" class="px-6 py-8 text-center text-red-500">Failed to load products. API not available.</td></tr>';
+                    return;
+                }
+                
+                // Fetch products from JSON
+                window.NovaCoreAPI.getProducts()
+                    .then(function(products) {
+                        allProducts = products;      // Store for filtering
+                        renderTable(products);       // Render table
+                    })
+                    .catch(function() {
+                        tbody.innerHTML = '<tr><td colspan="6" class="px-6 py-8 text-center text-red-500">Failed to load products. Please try again.</td></tr>';
+                    });
+            }
+            
+            /**
+             * Render products in the table
+             * @param {Array} products - Array of product objects
+             */
+            function renderTable(products) {
+                var tbody = document.getElementById('products-table-body');
+                
+                // Handle empty results
+                if (!products || products.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="6" class="px-6 py-8 text-center text-gray-400">No products found.</td></tr>';
+                    return;
+                }
+                
+                var html = '';
+                
+                // Build a table row for each product
+                products.forEach(function(p) {
+                    
+                    // Stock status badge (green = in stock, red = out)
+                    var stockBadge = p.inStock 
+                        ? '<span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">In Stock</span>'
+                        : '<span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full">Out of Stock</span>';
+                    
+                    // Product badge (Best Seller, New, Popular, etc.)
+                    var badgeHTML = p.badge 
+                        ? '<span class="text-xs bg-novacore-100 text-novacore-700 px-2 py-1 rounded-full">' + p.badge + '</span>' 
+                        : '<span class="text-xs text-gray-400">-</span>';
+                    
+                    html += '<tr class="hover:bg-gray-50">';
+                    html += '<td class="px-6 py-3 text-sm font-medium text-gray-900">' + p.name + '</td>';
+                    html += '<td class="px-6 py-3 text-sm text-gray-500">' + p.category + '</td>';
+                    html += '<td class="px-6 py-3 text-sm text-gray-900 font-medium">$' + p.price + '</td>';
+                    html += '<td class="px-6 py-3">' + stockBadge + '</td>';
+                    html += '<td class="px-6 py-3 text-sm text-gray-500">' + (p.rating || '-') + '</td>';
+                    html += '<td class="px-6 py-3">' + badgeHTML + '</td>';
+                    html += '</tr>';
+                });
+                
+                // Insert all rows
+                tbody.innerHTML = html;
+            }
+            
+            /**
+             * Filter products based on search text, category, and stock status
+             * Called on input/change events from filter controls
+             */
+            function filterProducts() {
+                // Get filter values
+                var search = document.getElementById('product-search').value.toLowerCase();
+                var category = document.getElementById('category-filter').value;
+                var stock = document.getElementById('stock-filter').value;
+                
+                // Apply all three filters
+                var filtered = allProducts.filter(function(p) {
+                    // Text search: match name OR category
+                    var matchSearch = !search 
+                        || p.name.toLowerCase().indexOf(search) > -1 
+                        || p.category.toLowerCase().indexOf(search) > -1;
+                    
+                    // Category filter
+                    var matchCategory = category === 'all' || p.category === category;
+                    
+                    // Stock filter
+                    var matchStock = stock === 'all' 
+                        || (stock === 'in' && p.inStock) 
+                        || (stock === 'out' && !p.inStock);
+                    
+                    // Must match ALL filters
+                    return matchSearch && matchCategory && matchStock;
+                });
+                
+                // Re-render table with filtered results
+                renderTable(filtered);
+            }
+            
+        })();
+    </script>
+    
+</body>
+</html>
